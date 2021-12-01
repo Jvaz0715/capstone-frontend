@@ -3,15 +3,12 @@ import {
    useReducer
 } from "react";
 
+import {ACTIONS} from "./ACTIONS";
+
 export const AuthContext = createContext({});
 
 const initialState = {
    user: null,
-}
-
-const ACTIONS = {
-   LOGIN: "LOGIN",
-   LOGOUT: "LOGOUT"
 };
 
 function reducer(state, action) {
