@@ -5,7 +5,7 @@ import {
    Route,
 } from 'react-router-dom';
 
-import Navbar from "./components/Navbar/Navbar";
+//import Navbar from "./components/Navbar/Navbar";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const Auth = React.lazy(() => import ("./components/Auth/Auth"));
@@ -34,7 +34,8 @@ function MainRouter(props) {
                component={Auth}
             />
 
-            <PrivateRoute
+            {/* Turn into PrivateRoute once it is set up*/}
+            <Route
                exact
                path="/protected"
                component={Protected}
