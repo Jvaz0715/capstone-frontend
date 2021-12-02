@@ -46,9 +46,14 @@ function CheckAuthToken() {
       }
    };
 
+   function logUserOut() {
+
+   }
+
    return {
       checkIfJwtTokenExists,
       logUserIn,
+      logUserOut
    }
 
 };
