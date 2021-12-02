@@ -9,6 +9,8 @@ import {
 } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
 
+import useChangeInputConfig from "../hooks/useInput";
+
 
 const useStyles = makeStyles((theme) =>({
    root: {
@@ -21,13 +23,68 @@ const useStyles = makeStyles((theme) =>({
 
 function Auth(props) {
    const classes = useStyles();
-   console.log("props")
-   console.log(props)
+   
    let isLoginPath = props.location.pathname === "/login";
 
    let submitButtonTitle = isLoginPath 
       ? "Login"
       : "Sign Up";
+
+   // first name
+   const [
+      firstName,
+      handleFirstNameChange,
+      isFirstNameError,
+      firstNameDisabled,
+      clearFirstNameInput
+   ] = useChangeInputConfig("firstName");
+
+   // last name
+   const [
+      lastName,
+      handleLastNameChange,
+      isLastNameError,
+      lastNameDisabled,
+      clearLastNameInput
+   ] = useChangeInputConfig("lastName");
+
+   // username
+   const [
+      username,
+      handleUsernameChange,
+      isUsernameError,
+      usernameDisabled,
+      clearUsernameInput
+   ] = useChangeInputConfig("username");
+
+   // email
+   const [
+      email,
+      handleEmailChange,
+      isEmailError,
+      emailDisabled,
+      clearEmailInput
+   ] = useChangeInputConfig("email");
+
+   // password
+   const [
+      password,
+      handlePasswordChange,
+      isPasswordError,
+      passwordDisabled,
+      clearPasswordInput
+   ] = useChangeInputConfig("password");
+
+   let user = {
+      firstName,
+      lastName,
+      username,
+      email,
+      password
+   };
+
+   console.log("user")
+   console.log(user)
 
 
    return (
@@ -51,9 +108,9 @@ function Auth(props) {
                      fullWidth
                      label="First Name"
                      name="firstName"
-                     // value={firstName}
-                     // onChange={handleFirstNameChange}
-                     // error={isFirstNameError}
+                     value={firstName}
+                     onChange={handleFirstNameChange}
+                     error={isFirstNameError}
                      // helperText={firstNameErrorMessage}
                   />
                   </Grid>
@@ -63,9 +120,9 @@ function Auth(props) {
                      fullWidth
                      label="Last Name"
                      name="lastName"
-                     // value={lastName}
-                     // onChange={handleLastNameChange}
-                     // error={isLastNameError}
+                     value={lastName}
+                     onChange={handleLastNameChange}
+                     error={isLastNameError}
                      // helperText={lastNameErrorMessage}
                   />
                   </Grid>
@@ -75,9 +132,9 @@ function Auth(props) {
                         fullWidth 
                         label="Username" 
                         name="username" 
-                        // value={username}
-                        // onChange={handleUsernameChange}
-                        // error={isUsernameError}
+                        value={username}
+                        onChange={handleUsernameChange}
+                        error={isUsernameError}
                         // helperText={usernameErrorMessage}
                      />
                   </Grid>
@@ -91,9 +148,9 @@ function Auth(props) {
                   fullWidth
                   label="Email"
                   name="email"
-                  // value={email}
-                  // onChange={handleEmailChange}
-                  // error={isEmailError}
+                  value={email}
+                  onChange={handleEmailChange}
+                  error={isEmailError}
                   // helperText={emailErrorMessage}
                />
             </Grid>
@@ -103,9 +160,9 @@ function Auth(props) {
                   fullWidth
                   label="Password"
                   name="password"
-                  // value={password}
-                  // onChange={handlePasswordChange}
-                  // error={isPasswordError}
+                  value={password}
+                  onChange={handlePasswordChange}
+                  error={isPasswordError}
                   // helperText={passwordErrorMessage}
                />
             </Grid>
