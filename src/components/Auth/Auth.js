@@ -35,7 +35,8 @@ function Auth(props) {
       firstName,
       handleFirstNameChange,
       isFirstNameError,
-      firstNameDisabled,
+      firstNameErrorMessage,
+      isFirstNameDisabled,
       clearFirstNameInput
    ] = useChangeInputConfig("firstName");
 
@@ -44,7 +45,8 @@ function Auth(props) {
       lastName,
       handleLastNameChange,
       isLastNameError,
-      lastNameDisabled,
+      lastNameErrorMessage,
+      isLastNameDisabled,
       clearLastNameInput
    ] = useChangeInputConfig("lastName");
 
@@ -53,7 +55,8 @@ function Auth(props) {
       username,
       handleUsernameChange,
       isUsernameError,
-      usernameDisabled,
+      usernameErrorMessage,
+      isUsernameDisabled,
       clearUsernameInput
    ] = useChangeInputConfig("username");
 
@@ -62,7 +65,8 @@ function Auth(props) {
       email,
       handleEmailChange,
       isEmailError,
-      emailDisabled,
+      emailErrorMessage,
+      isEmailDisabled,
       clearEmailInput
    ] = useChangeInputConfig("email");
 
@@ -71,7 +75,8 @@ function Auth(props) {
       password,
       handlePasswordChange,
       isPasswordError,
-      passwordDisabled,
+      passwordErrorMessage,
+      isPasswordDisabled,
       clearPasswordInput
    ] = useChangeInputConfig("password");
 
@@ -111,7 +116,7 @@ function Auth(props) {
                      value={firstName}
                      onChange={handleFirstNameChange}
                      error={isFirstNameError}
-                     // helperText={firstNameErrorMessage}
+                     helperText={firstNameErrorMessage}
                   />
                   </Grid>
 
@@ -123,7 +128,7 @@ function Auth(props) {
                      value={lastName}
                      onChange={handleLastNameChange}
                      error={isLastNameError}
-                     // helperText={lastNameErrorMessage}
+                     helperText={lastNameErrorMessage}
                   />
                   </Grid>
 
@@ -135,7 +140,7 @@ function Auth(props) {
                         value={username}
                         onChange={handleUsernameChange}
                         error={isUsernameError}
-                        // helperText={usernameErrorMessage}
+                        helperText={usernameErrorMessage}
                      />
                   </Grid>
                   </>
@@ -151,7 +156,7 @@ function Auth(props) {
                   value={email}
                   onChange={handleEmailChange}
                   error={isEmailError}
-                  // helperText={emailErrorMessage}
+                  helperText={emailErrorMessage}
                />
             </Grid>
 
@@ -163,7 +168,7 @@ function Auth(props) {
                   value={password}
                   onChange={handlePasswordChange}
                   error={isPasswordError}
-                  // helperText={passwordErrorMessage}
+                  helperText={passwordErrorMessage}
                />
             </Grid>
 
@@ -173,11 +178,16 @@ function Auth(props) {
                   variant="contained" 
                   color="primary"
                   style={{marginTop: 10}}
-                  // disabled={
-                  //    isLoginRoute 
-                  //       ? isEmailDisabled || isPasswordDisabled
-                  //       : isEmailDisabled || isPasswordDisabled || isUsernameDisabled
-                  // }
+                  disabled={
+                     isLoginPath 
+                        ? isEmailDisabled || isPasswordDisabled
+                        : isFirstNameDisabled ||
+                           isLastNameDisabled ||
+                           isUsernameDisabled ||
+                           isEmailDisabled || 
+                           isPasswordDisabled 
+                           
+                  }
                >
                   {submitButtonTitle}
                </Button>
