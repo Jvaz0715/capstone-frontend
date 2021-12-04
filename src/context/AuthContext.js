@@ -9,10 +9,10 @@ const initialState = {
    user: null,
 };
 
-const ACTIONS = {
-   LOGIN: "LOGIN",
-   LOGOUT: "LOGOUT",
-}
+// const ACTIONS = {
+//    LOGIN: "LOGIN",
+//    LOGOUT: "LOGOUT",
+// }
 
 function reducer(state, action) {
    switch(action.type) {

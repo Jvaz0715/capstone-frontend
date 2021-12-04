@@ -37,7 +37,6 @@ function useFetchAPI(url) {
 
    function handleAPICallButtonSubmit(userInfo = {}) {
       setUserInfo(userInfo);
-      
       setIsLoading(true);
    };
 
