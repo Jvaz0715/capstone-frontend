@@ -75,7 +75,7 @@ function useFetchAPI(url) {
             })
          }
       } catch(e) {
-         setError(e.response.data.message);
+         // setError(e.response.data.message);
          setIsLoading(false);
          handleMessageOpen();
       };

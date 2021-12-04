@@ -18,10 +18,10 @@ function CheckAuthToken() {
          let decodedToken = jwtDecode(jwtToken);
 
          if(decodedToken.exp < currentTime) {
-            setAxiosAuthToken(null);
+            // setAxiosAuthToken(null);
             return false;
          } else {
-            setAxiosAuthToken(jwtToken);
+            // setAxiosAuthToken(jwtToken);
             return true;
          }
       } else {
@@ -46,28 +46,12 @@ function CheckAuthToken() {
             }
          });
       };
+   };
+
+   return {
+      checkIfTokenExists,
+      logUserIn
    }
 };
 
 export default CheckAuthToken;
-
-
-// function checkIfUserIsAuth() {
-//    let jwtToken = localStorage.getItem("jwtToken");
-
-//    if(jwtToken){
-//       const currentTime = Date.now() / 1000;
-
-//       let decodedToken = jwtDecode(jwtToken);
-
-//       if(decodedToken.exp < currentTime) {
-//          setAxiosAuthToken(null);
-//          return false;
-//       } else {
-//          setAxiosAuthToken(jwtToken);
-//          return true;
-//       }
-//    } else {
-//       return false;
-//    };
-// };

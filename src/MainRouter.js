@@ -9,6 +9,8 @@ const Home = React.lazy(() => import("./components/Home/Home.js"));
 const Auth = React.lazy(() => import("./components/Auth/Auth"));
 // import other componenets
 
+const Attractions = React.lazy(() => import("./components/Attractions/Attractions"))
+
 function MainRouter(props) {
    return (
       <Router>
@@ -32,6 +34,12 @@ function MainRouter(props) {
                component={Auth}
             />
 
+            {/* Attractions */}
+            <Route 
+               exact
+               path="/attractions"
+               component={Attractions}
+            />
 
          </Switch>
       </Router>

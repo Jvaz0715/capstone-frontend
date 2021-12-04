@@ -13,7 +13,7 @@ import MuiAlert from "@material-ui/lab/Alert";
 
 import useChangeInputConfig from '../hooks/useInput';
 import useFetchAPI from '../hooks/useFetchAPI';
-import CheckAuthToken from '../hooks/checkIfUserAuth';
+import CheckAuthToken from '../hooks/CheckAuthToken';
 
 const useStyles = makeStyles((theme) => ({
    root: {
@@ -31,7 +31,7 @@ function Auth(props) {
    let submitButtonTitle = isLoginRoute ? "Login" : "Sign Up";
    let apiURL = isLoginRoute ? "/users/login" : "/users/sign-up";
 
-   const {checkIfTokenExists} = CheckAuthToken;
+   const {checkIfTokenExists }= CheckAuthToken();
 
    const [
       {
@@ -127,6 +127,13 @@ function Auth(props) {
 
    };
 
+   if (checkIfTokenExists()) {
+      if(props.location.pathname ==="/login" || props.location.pathname === "/sign-up") {
+         props.history.push("/attractions")
+      } else {
+         return props.location.pathname;
+      }
+   }
 
    return (
       <Grid container spacing={0} justifyContent="center">
