@@ -4,6 +4,7 @@ import {
    useContext,
 } from 'react';
 import axios from "axios";
+import jwtDecode from 'jwt-decode';
 
 import { AuthContext } from '../../context/AuthContext';
 
@@ -36,8 +37,7 @@ function useFetchAPI(url) {
 
    function handleAPICallButtonSubmit(userInfo = {}) {
       setUserInfo(userInfo);
-      console.log("user Info")
-      console.log(userInfo)
+      
       setIsLoading(true);
    };
 
@@ -52,6 +52,8 @@ function useFetchAPI(url) {
 
          if(url === "/users/login"){
             let jwtToken = response.data.payload;
+            let decodedToken = jwtDecode(jwtToken);
+            localStorage.setItem("jwtToken", jwtToken);
 
             console.log(jwtToken)
          };

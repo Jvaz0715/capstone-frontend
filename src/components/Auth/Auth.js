@@ -117,7 +117,6 @@ function Auth(props) {
       
       handleAPICallButtonSubmit({...user})
    
-      console.log(user)
    };
 
    function successMessage() {
