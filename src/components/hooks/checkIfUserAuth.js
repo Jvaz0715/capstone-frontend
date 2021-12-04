@@ -42,6 +42,7 @@ function CheckAuthToken() {
             type:"LOGIN",
             user: {
                email: jwtDecodedToken.email,
+               username: jwtDecodedToken.username
             }
          });
       };

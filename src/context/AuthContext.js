@@ -19,7 +19,8 @@ function reducer(state, action) {
       case ACTIONS.LOGIN:
          return {
             user: {
-               email: action.user.email
+               email: action.user.email,
+               username: action.user.username,
             }
          };
       case ACTIONS.LOGOUT:
