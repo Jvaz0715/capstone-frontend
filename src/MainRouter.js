@@ -5,10 +5,9 @@ import {
    Switch
 } from "react-router-dom";
 
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute.js";
 const Home = React.lazy(() => import("./components/Home/Home.js"));
 const Auth = React.lazy(() => import("./components/Auth/Auth"));
-// import other componenets
-
 const Attractions = React.lazy(() => import("./components/Attractions/Attractions"))
 
 function MainRouter(props) {
@@ -31,11 +30,12 @@ function MainRouter(props) {
             <Route 
                exact
                path="/login"
-               component={Auth}
+               // component={Auth}
+               render={(routerProps) => <Auth {...routerProps} />}
             />
 
             {/* Attractions */}
-            <Route 
+            <PrivateRoute 
                exact
                path="/attractions"
                component={Attractions}
