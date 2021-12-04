@@ -35,10 +35,11 @@ function AuthContextWrapper({children}) {
    const [state, dispatch] = useReducer(reducer, initialState);
 
    return (
-      <AuthContextWrapper.Provider value={{state, dispatch}}>
+      <AuthContext.Provider value={{state, dispatch}}>
          {children}
-      </AuthContextWrapper.Provider>
+      </AuthContext.Provider>
    )
 };
 
 export default AuthContextWrapper;
+

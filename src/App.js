@@ -7,8 +7,8 @@ import AuthContextWrapper from "./context/AuthContext";
 
 import './App.css';
 
-function App() {
-  return (
+function App(){
+  return(
     <React.Suspense fallback={<Spinner />}>
       <Router>
         <AuthContextWrapper>
@@ -16,7 +16,7 @@ function App() {
         </AuthContextWrapper>
       </Router>
     </React.Suspense>
-  );
+  )
 };
 
 export default App;
