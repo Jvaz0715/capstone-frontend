@@ -47,8 +47,15 @@ function useFetchAPI(url) {
       };
 
       try {
-         let response = await axios(baseURL + url, userObj);
+         let response = await axios.post(baseURL + url, userObj);
          // look at backedn for message user created
+
+         if(url === "/users/login"){
+            let jwtToken = response.data.payload;
+
+            console.log(jwtToken)
+         };
+
          if (response.data.message === "Success! User created" || response.data.message === "Success! Logged in") {
             setResponse(response.data.message);
             handleMessageOpen();

@@ -29,7 +29,7 @@ function Auth(props) {
 
    let isLoginRoute = props.location.pathname === "/login";
    let submitButtonTitle = isLoginRoute ? "Login" : "Sign Up";
-   let apiURL = isLoginRoute ? "/users/login" : "/users/create-user";
+   let apiURL = isLoginRoute ? "/users/login" : "/users/sign-up";
 
    const {checkIfTokenExists} = CheckAuthToken;
 
@@ -111,6 +111,13 @@ function Auth(props) {
    function handleOnSubmit(e) {
       e.preventDefault();
 
+      const user = isLoginRoute
+         ? {email, password}
+         : {firstName, lastName, username, email, password};
+      
+      handleAPICallButtonSubmit({...user})
+   
+      console.log(user)
    };
 
    function successMessage() {
