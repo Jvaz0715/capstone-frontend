@@ -49,14 +49,16 @@ function useFetchAPI(url) {
       try {
          let response = await axios.post(baseURL + url, userObj);
          // look at backedn for message user created
+         console.log(response);
 
-         if(url === "/users/login"){
+         if(url === "/users/login") {
             let jwtToken = response.data.payload;
             let decodedToken = jwtDecode(jwtToken);
+            console.log(decodedToken)
             localStorage.setItem("jwtToken", jwtToken);
-
-            console.log(jwtToken)
-         };
+         }
+         
+   
 
          if (response.data.message === "Success! User created" || response.data.message === "Success! Logged in") {
             setResponse(response.data.message);
@@ -70,7 +72,7 @@ function useFetchAPI(url) {
                type: "LOGIN",
                user: {
                   email: response.data.user.email,
-                  username: response.data.username
+                  // username: decodedToken.username
                }
             })
          }

@@ -1,9 +1,17 @@
-import React from 'react'
+import {useContext} from 'react';
+import { AuthContext } from '../../context/AuthContext';
+
 
 function Attractions() {
+  const {
+      state: {user}
+   } = useContext(AuthContext);
+   // console.log("state")
+   // console.log(user)
    return (
       <div>
-         Attractions Search Page!
+         {/* Welcome back {user.username} */}
+         hello
       </div>
    )
 }

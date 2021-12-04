@@ -9,7 +9,7 @@ import CheckAuthToken from "../hooks/CheckAuthToken";
 
 function PrivateRoute({ component: Component, ...rest}) {
    const { state: user } = useContext(AuthContext);
-   console.log(user)
+
    const { checkIfTokenExists } = CheckAuthToken();
 
    return(

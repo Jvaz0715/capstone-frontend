@@ -16,14 +16,14 @@ const ACTIONS = {
 
 function reducer(state, action) {
    switch(action.type) {
-      case ACTIONS.LOGIN:
+      case "LOGIN":
          return {
             user: {
                email: action.user.email,
                username: action.user.username,
             }
          };
-      case ACTIONS.LOGOUT:
+      case "LOGOUT":
          return {
             user: null,
          };

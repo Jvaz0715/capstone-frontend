@@ -35,9 +35,7 @@ function CheckAuthToken() {
       if(checkTokenExists) {
          const jwtToken = localStorage.getItem("jwtToken");
          const jwtDecodedToken = jwtDecode(jwtToken);
-         console.log("jwtDecodedToken")
-         console.log(jwtDecodedToken);
-
+   
          dispatch({
             type:"LOGIN",
             user: {
