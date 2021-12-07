@@ -5,6 +5,7 @@ import {
 import { AuthContext } from '../../context/AuthContext';
 import { 
    Box,
+   Button,
    InputLabel,
    MenuItem,
    FormControl,
@@ -65,11 +66,16 @@ function Attractions() {
       } else {
          return;
       }
+   };
+
+   const handleOnSubmit = () => {
+      console.log("here are the parameters");
+      console.log("city ", searchedCity)
+      console.log("attraction ", attractionType)
+      console.log("distance ", distance)
+      console.log()
    }
 
-   console.log(searchedCity)
-   console.log(attractionType)
-   console.log(distance)
    const {
       state: {user}
    } = useContext(AuthContext);
@@ -92,7 +98,7 @@ function Attractions() {
             <FormControl sx={{ m: 1}} variant="standard">
                <InputLabel id="demo-simple-select-label">Attraction</InputLabel>
                <Select
-                  labelId="demo-simple-select-label"
+                  labelid="demo-simple-select-label"
                   id="demo-customized-select"
                   value={attractionType}
                   name="attractionType"
@@ -110,7 +116,7 @@ function Attractions() {
             <FormControl sx={{ m: 1}} variant="standard">
                <InputLabel id="demo-simple-select-label">Distance</InputLabel>
                <NativeSelect
-                  labelId="demo-simple-select-label"
+                  labelid="demo-simple-select-label"
                   id="demo-simple-select"
                   value={distance}
                   name="distance"
@@ -127,7 +133,10 @@ function Attractions() {
                </NativeSelect>
                <FormHelperText>Distance</FormHelperText>
             </FormControl>
+            
+            <Button sx={{ m: 1}} variant="contained" onClick={handleOnSubmit}>Search</Button>
          </Box>
+
       </>
    )
 }
