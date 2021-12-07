@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
    useState,
    useContext
@@ -52,9 +53,16 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 }));
 
 function Attractions() {
+   const {
+      state: {user}
+   } = useContext(AuthContext);
+
    const [searchedCity, setSearchedCity] = useState("");
    const [attractionType, setAttractionType] = useState("");
    const [distance, setDistance] = useState(0);
+
+   const [attractionsXIDs, setAttractionsXIDs] = useState([]);
+   const [validAttractions, setValidAttractions] = useState([]);
 
    const handleOnChange = (e) => {
       if (e.target.name === "searchedCity"){
@@ -68,17 +76,66 @@ function Attractions() {
       }
    };
 
-   const handleOnSubmit = () => {
-      console.log("here are the parameters");
-      console.log("city ", searchedCity)
-      console.log("attraction ", attractionType)
-      console.log("distance ", distance)
-      console.log()
+   const searchCity = async(cityName) => {
+      try{
+         let cityData = await axios.get(`https://api.opentripmap.com/0.1/en/places/geoname?name=${cityName}&apikey=${process.env.REACT_APP_MAP_APIKEY}`);
+      
+         return {
+            lat: cityData.data.lat,
+            lon: cityData.data.lon,
+         }
+      
+      } catch(e) {
+         console.log(e)
+      }
+   };
+
+   const searchAttractions = async (coordinates,  attractionType, distance) => {
+      try {
+         let attractions = await axios.get(`https://api.opentripmap.com/0.1/en/places/radius?radius=${distance}&lon=${coordinates.lon}&lat=${coordinates.lat}&kinds=${attractionType}&apikey=${process.env.REACT_APP_MAP_APIKEY}`);
+
+         let newXidArray = []
+         attractions.data.features.map((attraction) => {
+            newXidArray.push(attraction.properties.xid);
+         });
+         return newXidArray;
+
+      } catch(e) {
+         console.log(e)
+      }
+   };
+
+   const attractionInfo = async (xid) => {
+      try {
+         const attractionData = await axios.get(`https://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${process.env.REACT_APP_MAP_APIKEY}`);
+
+         if(attractionData.data.wikipedia && attractionData.data.preview.source) {
+            const newValidAttractionsArray = [...validAttractions, attractionData];
+            setValidAttractions(newValidAttractionsArray);
+         }
+
+         return attractionData;
+
+      } catch(e) {
+         console.log(e)
+      }
    }
 
-   const {
-      state: {user}
-   } = useContext(AuthContext);
+   const handleOnSubmit = async () => {
+      try {
+         const cityCoordinates = await searchCity(searchedCity);
+         const attractions = await searchAttractions(cityCoordinates, attractionType, distance);
+         setAttractionsXIDs([...attractions])
+
+         // attractions.map((attraction) => {
+         //    attractionInfo(attraction)
+         // });
+
+      } catch(e) {
+         console.log(e);
+      }
+   }
+
    
    return (
       <>
@@ -106,7 +163,11 @@ function Attractions() {
                   input={<BootstrapInput />}
                >
                   <MenuItem value="museums">Museums</MenuItem>
-                  <MenuItem value="theaters">Theaters</MenuItem>
+                  <MenuItem value="theatres_and_entertainments">Theaters</MenuItem>
+                  <MenuItem value="historic">Historical</MenuItem>
+                  <MenuItem value="foods">Food</MenuItem>
+                  <MenuItem value="shops">Shops</MenuItem>
+                  <MenuItem value="transport">Transportation</MenuItem>
                   <MenuItem value="banks">Banks</MenuItem>
                </Select>
                <FormHelperText>Attraction</FormHelperText>
@@ -125,17 +186,26 @@ function Attractions() {
                   input={<BootstrapInput />}
                >
                   <option aria-label="None" value="" />
-                  <option value={1}>1 mi</option>
-                  <option value={2}>2 mi</option>
-                  <option value={3}>3 mi</option>
-                  <option value={4}>4 mi</option>
-                  <option value={5}>5 mi</option>
+                  <option value={1610}>1 mi</option>
+                  <option value={3219}>2 mi</option>
+                  <option value={4828}>3 mi</option>
+                  <option value={6437}>4 mi</option>
+                  <option value={8047}>5 mi</option>
                </NativeSelect>
                <FormHelperText>Distance</FormHelperText>
             </FormControl>
             
             <Button sx={{ m: 1}} variant="contained" onClick={handleOnSubmit}>Search</Button>
          </Box>
+
+         <div>
+            {
+               attractionsXIDs.map((id) => {
+                  return <div key={id}>{id}</div>
+               })
+            }
+         </div>
+
 
       </>
    )
