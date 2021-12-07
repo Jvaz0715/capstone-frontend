@@ -1,4 +1,7 @@
-import {useContext} from 'react';
+import {
+   useState,
+   useContext
+} from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { 
    Box,
@@ -48,11 +51,28 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 }));
 
 function Attractions() {
+   const [searchedCity, setSearchedCity] = useState("");
+   const [attractionType, setAttractionType] = useState("");
+   const [distance, setDistance] = useState(0);
+
+   const handleOnChange = (e) => {
+      if (e.target.name === "searchedCity"){
+         setSearchedCity(e.target.value);
+      } else if (e.target.name === "attractionType"){
+         setAttractionType(e.target.value);
+      } else if (e.target.name === "distance"){
+         setDistance(e.target.value);
+      } else {
+         return;
+      }
+   }
+
+   console.log(searchedCity)
+   console.log(attractionType)
+   console.log(distance)
    const {
       state: {user}
    } = useContext(AuthContext);
-   console.log("state")
-   console.log(user)
    
    return (
       <>
@@ -64,7 +84,7 @@ function Attractions() {
             {/* city search */}
             <FormControl sx={{ m: 1}} variant="standard">
                <InputLabel htmlFor="demo-customized-textbox">City</InputLabel>
-               <BootstrapInput id="demo-customized-textbox" />
+               <BootstrapInput id="demo-customized-textbox" name="searchedCity" onChange={handleOnChange}/>
                <FormHelperText>Search City</FormHelperText>
             </FormControl>
             
@@ -74,8 +94,9 @@ function Attractions() {
                <Select
                   labelId="demo-simple-select-label"
                   id="demo-customized-select"
-                  // value={age}
-                  //  onChange={handleChange}
+                  value={attractionType}
+                  name="attractionType"
+                  onChange={handleOnChange}
                   input={<BootstrapInput />}
                >
                   <MenuItem value="museums">Museums</MenuItem>
@@ -91,9 +112,10 @@ function Attractions() {
                <NativeSelect
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  //  value={age}
-                  label="Age"
-                  //  onChange={handleChange}
+                  value={distance}
+                  name="distance"
+                  label="Distance"
+                  onChange={handleOnChange}
                   input={<BootstrapInput />}
                >
                   <option aria-label="None" value="" />
@@ -110,6 +132,6 @@ function Attractions() {
    )
 }
 
-export default Attractions
+export default Attractions;
 
 
