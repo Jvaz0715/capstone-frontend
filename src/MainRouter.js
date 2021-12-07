@@ -5,6 +5,7 @@ import {
    Switch
 } from "react-router-dom";
 
+import Navbar from "./components/Navbar/Navbar";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.js";
 const Home = React.lazy(() => import("./components/Home/Home.js"));
 const Auth = React.lazy(() => import("./components/Auth/Auth"));
@@ -13,6 +14,7 @@ const Attractions = React.lazy(() => import("./components/Attractions/Attraction
 function MainRouter(props) {
    return (
       <Router>
+         <Navbar />
          <Switch>
             {/* homepage */}
             <Route 

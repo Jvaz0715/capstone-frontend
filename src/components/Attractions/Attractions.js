@@ -6,8 +6,8 @@ function Attractions() {
   const {
       state: {user}
    } = useContext(AuthContext);
-   // console.log("state")
-   // console.log(user)
+   console.log("state")
+   console.log(user)
    return (
       <div>
          {/* Welcome back {user.username} */}
