@@ -46,9 +46,18 @@ function CheckAuthToken() {
       };
    };
 
+   function logUserOut() {
+      localStorage.removeItem("jwtToken")
+
+      dispatch({
+         type: "LOGOUT"
+      })
+   };
+
    return {
       checkIfTokenExists,
-      logUserIn
+      logUserIn,
+      logUserOut
    }
 };
 
