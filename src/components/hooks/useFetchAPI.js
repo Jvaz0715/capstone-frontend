@@ -47,9 +47,7 @@ function useFetchAPI(url) {
       
       try {
          let response = await axios.post(baseURL + url, userObj);
-         // look at backedn for message user created
-         console.log(response);
-
+         // look at backend for message user created
          
          // let jwtToken = response.data.payload;
          // let decodedToken = jwtDecode(jwtToken);
@@ -65,8 +63,6 @@ function useFetchAPI(url) {
          } else {
             setIsLoading(false);
             let jwtToken = response.data.payload;
-            let decodedToken = jwtDecode(jwtToken);
-            console.log(decodedToken)
             localStorage.setItem("jwtToken", jwtToken);
             
             dispatch({

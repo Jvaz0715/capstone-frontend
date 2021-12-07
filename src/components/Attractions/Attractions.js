@@ -10,8 +10,7 @@ function Attractions() {
    console.log(user)
    return (
       <div>
-         {/* Welcome back {user.username} */}
-         hello
+         Welcome back {user.username}
       </div>
    )
 }
