@@ -251,7 +251,7 @@ function Auth(props) {
                            isUsernameDisabled ||
                            isEmailDisabled || 
                            isPasswordDisabled ||
-                           isConfirmPasswordDisabled
+                           password !== confirmPassword
                   }
                >
                   {submitButtonTitle}
