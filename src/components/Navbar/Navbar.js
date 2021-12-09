@@ -58,11 +58,13 @@ function Navbar() {
                   </Link>
                </Typography>
 
-               <NavLink activeStyle={{color: "red"}} exact to={navLinkTitleThree}>
-                  <Button color="inherit" style={{color: "white"}}>
-                     {navLinkDisplayThree}
-                  </Button>
-               </NavLink>
+               {isUserLoggedIn &&
+                  <NavLink activeStyle={{color: "red"}} exact to="/attractions">
+                     <Button color="inherit" style={{color: "white"}}>
+                        {navLinkDisplayThree}
+                     </Button>
+                  </NavLink>
+               }
 
                <NavLink activeStyle={{color: "red"}} exact to={navLinkTitleOne}>
                   <Button color="inherit" style={{color: "white"}}>

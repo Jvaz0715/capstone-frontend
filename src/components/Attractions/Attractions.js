@@ -17,6 +17,8 @@ import {
    FormHelperText 
 } from '@material-ui/core';
 
+import AttractionSearchItem from './AttractionListItem';
+
 
 // styling
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
@@ -61,7 +63,6 @@ function Attractions() {
    const [attractionType, setAttractionType] = useState("");
    const [distance, setDistance] = useState(0);
 
-   const [attractionsXIDs, setAttractionsXIDs] = useState([]);
    const [validAttractions, setValidAttractions] = useState([]);
 
    const handleOnChange = (e) => {
@@ -94,38 +95,37 @@ function Attractions() {
       try {
          let attractions = await axios.get(`https://api.opentripmap.com/0.1/en/places/radius?radius=${distance}&lon=${coordinates.lon}&lat=${coordinates.lat}&kinds=${attractionType}&apikey=${process.env.REACT_APP_MAP_APIKEY}`);
 
-         let newXidArray = []
-         attractions.data.features.map((attraction) => {
-            newXidArray.push(attraction.properties.xid);
-         });
-         return newXidArray;
+         let AttractionsArray = [...attractions.data.features];
+         
+         return AttractionsArray;
 
       } catch(e) {
          console.log(e)
       }
    };
 
-   const attractionInfo = async (xid) => {
-      try {
-         const attractionData = await axios.get(`https://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${process.env.REACT_APP_MAP_APIKEY}`);
+   // const attractionInfo = async (xid) => {
+   //    try {
+   //       const attractionData = await axios.get(`https://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${process.env.REACT_APP_MAP_APIKEY}`);
 
-         if(attractionData.data.wikipedia && attractionData.data.preview.source) {
-            const newValidAttractionsArray = [...validAttractions, attractionData];
-            setValidAttractions(newValidAttractionsArray);
-         }
+   //       if(attractionData.data.wikipedia && attractionData.data.preview.source) {
+   //          const newValidAttractionsArray = [...validAttractions, attractionData];
+   //          setValidAttractions(newValidAttractionsArray);
+   //       }
 
-         return attractionData;
+   //       return attractionData;
 
-      } catch(e) {
-         console.log(e)
-      }
-   }
+   //    } catch(e) {
+   //       console.log(e)
+   //    }
+   // }
 
    const handleOnSubmit = async () => {
       try {
          const cityCoordinates = await searchCity(searchedCity);
          const attractions = await searchAttractions(cityCoordinates, attractionType, distance);
-         setAttractionsXIDs([...attractions])
+         console.log(attractions)
+         setValidAttractions(attractions);
 
          // attractions.map((attraction) => {
          //    attractionInfo(attraction)
@@ -199,11 +199,17 @@ function Attractions() {
          </Box>
 
          <div>
+            <ul>
             {
-               attractionsXIDs.map((id) => {
-                  return <div key={id}>{id}</div>
+               validAttractions.map((attraction) => {
+                  return (
+                     <li key={attraction.id}>
+                        {AttractionSearchItem(attraction.properties)}
+                     </li>
+                  )                  
                })
             }
+            </ul>
          </div>
 
 
