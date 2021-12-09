@@ -61,6 +61,7 @@ function useFetchAPI(url) {
             setIsLoading(false);
             setSuccessMessageValue(response.data.message);
          } else {
+            console.log(response.data.message)
             setIsLoading(false);
             let jwtToken = response.data.payload;
             localStorage.setItem("jwtToken", jwtToken);

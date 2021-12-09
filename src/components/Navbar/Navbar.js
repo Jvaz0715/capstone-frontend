@@ -44,6 +44,10 @@ function Navbar() {
 
    const navLinkDisplayTwo = isUserLoggedIn ? "Logout" : "Sign Up";
 
+   const navLinkTitleThree = isUserLoggedIn ? "/attractions" : "/sign-up";
+
+   const navLinkDisplayThree = isUserLoggedIn ? "Search Attractions" : "";
+
    return (
       <div className={classes.root}>
          <AppBar position="static">
@@ -53,6 +57,13 @@ function Navbar() {
                      Nearby
                   </Link>
                </Typography>
+
+               <NavLink activeStyle={{color: "red"}} exact to={navLinkTitleThree}>
+                  <Button color="inherit" style={{color: "white"}}>
+                     {navLinkDisplayThree}
+                  </Button>
+               </NavLink>
+
                <NavLink activeStyle={{color: "red"}} exact to={navLinkTitleOne}>
                   <Button color="inherit" style={{color: "white"}}>
                      {navLinkDisplayOne}

@@ -133,7 +133,7 @@ function Auth(props) {
       } else {
          return props.location.pathname;
       }
-   }
+   };
 
    return (
       <Grid container spacing={0} justifyContent="center">
