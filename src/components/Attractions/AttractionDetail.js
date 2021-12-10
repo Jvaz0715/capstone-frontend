@@ -3,6 +3,16 @@ import React, {
    useEffect
 } from 'react';
 import axios from "axios";
+import {
+   Box,
+   Card,
+   CardActions,
+   CardContent,
+   CardMedia,
+   Button,
+   Typography
+} from "@material-ui/core";
+
 
 function AttractionDetail(props) {
    const [attractionName, setAttractionName] = useState("");
@@ -33,13 +43,28 @@ function AttractionDetail(props) {
    }, []);
 
    return (
-      <div style={{display: "flex", flexDirection: "column"}}>
-         <span>Name: {attractionName}</span>
-         <span>Image: {image}</span>
-         <span>Info: {attractionInfo}</span>
-         <span>ExternalURL: {externalURL}</span>
-         <span>Wikipedia Page: {wikiPage}</span>
-      </div>
+      <>
+         <Card sx={{ maxWidth: 345}}>
+            <CardMedia
+               component="img"
+               height="140"
+               image={image}
+               alt={attractionName}
+            />
+            <CardContent>
+               <Typography gutterBottom variant="h5" component="div">
+                  {attractionName}
+               </Typography>
+               <Typography variant="body2" color="text.secondary">
+                  {attractionInfo}
+               </Typography>
+            </CardContent>
+            <CardActions>
+               <Button size="small">Share</Button>
+               <Button size="small">Learn More</Button>
+            </CardActions>
+         </Card>
+      </>
    )
 };
 
