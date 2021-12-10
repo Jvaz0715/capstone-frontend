@@ -60,8 +60,9 @@ function AttractionDetail(props) {
                </Typography>
             </CardContent>
             <CardActions>
-               <Button size="small">Share</Button>
-               <Button size="small">Learn More</Button>
+               <Button size="small" variant="outlined">Share</Button>
+               <Button size="small" variant="outlined">Learn More</Button>
+               <Button size="small" variant="outlined">Save</Button>
             </CardActions>
          </Card>
       </>
