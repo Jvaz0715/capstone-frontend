@@ -124,7 +124,7 @@ function Attractions() {
       try {
          const cityCoordinates = await searchCity(searchedCity);
          const attractions = await searchAttractions(cityCoordinates, attractionType, distance);
-         console.log(attractions)
+         
          setValidAttractions(attractions);
 
          // attractions.map((attraction) => {
