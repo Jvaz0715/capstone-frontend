@@ -144,17 +144,18 @@ function Attractions() {
             Welcome back {user.username}
          </div>
          
+         {/* Search container */}
          <div className="search-box-container">
-         <Box sx={{display: "inline"}}>
-            {/* city search */}
-            <FormControl sx={{ m: 1}} variant="standard">
+            <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+               {/* city search */}
+               <FormControl sx={{ m: 1}} variant="standard">
                <InputLabel htmlFor="demo-customized-textbox">City</InputLabel>
                <BootstrapInput id="demo-customized-textbox" name="searchedCity" onChange={handleOnChange}/>
                <FormHelperText>Search City</FormHelperText>
-            </FormControl>
+               </FormControl>
             
-            {/* attraction type */}
-            <FormControl sx={{ m: 1}} variant="standard">
+               {/* attraction type */}
+               <FormControl sx={{ m: 1}} variant="standard">
                <InputLabel id="demo-simple-select-label">Attraction</InputLabel>
                <Select
                   labelid="demo-simple-select-label"
@@ -173,10 +174,10 @@ function Attractions() {
                   <MenuItem value="banks">Banks</MenuItem>
                </Select>
                <FormHelperText>Attraction</FormHelperText>
-            </FormControl>
+               </FormControl>
       
-            {/* distance in miles */}
-            <FormControl sx={{ m: 1}} variant="standard">
+               {/* distance in miles */}
+               <FormControl sx={{ m: 1}} variant="standard">
                <InputLabel id="demo-simple-select-label">Distance</InputLabel>
                <NativeSelect
                   labelid="demo-simple-select-label"
@@ -195,13 +196,10 @@ function Attractions() {
                   <option value={8047}>5 mi</option>
                </NativeSelect>
                <FormHelperText>Distance</FormHelperText>
-            </FormControl>
+               </FormControl>
 
-            <Box>
-            <Button sx={{ m: 1}} variant="contained" onClick={handleOnSubmit}>Search</Button>
+               <Button sx={{ m: 1}} variant="contained" onClick={handleOnSubmit}>Search</Button>
             </Box>
-            
-         </Box>
          </div>
          
          <div className="search-results-container">
