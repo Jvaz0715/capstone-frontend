@@ -31,13 +31,7 @@ function AttractionSearchItem(props) {
    const distInMiles = convertedToMiles(dist);
    
    return (
-      <Link
-         to={{
-            pathname: `/attraction-detail/${xid}`,
-            search: `?t=${xid}`
-         }}
-      >
-         <Box sx={{ width: 400, marginBottom: 10 }}>
+      <Box sx={{ width: 400, marginBottom: 10 }}>
          <Card sx={{ display: 'flex',}}>
             <Box sx={{ display: 'flex', flexDirection: "row"}}>
                <Box sx={{ display: 'flex', flexDirection: "column", width: "75%" }}>
@@ -55,7 +49,14 @@ function AttractionSearchItem(props) {
 
                   {/* put buttons */}
                   <Box>
-                     <button>Learn more</button>
+                     <Link
+                        to={{
+                           pathname: `/attraction-detail/${xid}`,
+                           search: `?t=${xid}`
+                        }}
+                     >
+                        <button>Learn more</button>
+                     </Link>
                   </Box>
 
                </Box>
@@ -72,7 +73,6 @@ function AttractionSearchItem(props) {
             </Box>
          </Card>
       </Box>
-      </Link>
    );
 };
 
