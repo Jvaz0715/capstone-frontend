@@ -17,8 +17,8 @@ function AttractionSearchItem(props) {
       rate
    } = props;
 
-   if(name === null) {
-      return null;
+   if(name === "") {
+      return;
    }
 
    function convertedToMiles(dist) {
@@ -30,7 +30,7 @@ function AttractionSearchItem(props) {
    const distInMiles = convertedToMiles(dist);
    
    return (
-      <Box sx={{ width: 400 }}>
+      <Box sx={{ width: 400, marginBottom: 10 }}>
          <Card sx={{ display: 'flex',}}>
             <Box sx={{ display: 'flex', flexDirection: "row"}}>
                <Box sx={{ display: 'flex', flexDirection: "column", width: "75%" }}>
