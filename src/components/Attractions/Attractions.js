@@ -205,11 +205,11 @@ function Attractions() {
          </div>
          
          <div className="search-results-container">
-            <ul>
+            <ul className="search-results-ul">
             {
                validAttractions.map((attraction) => {
                   return (
-                     <li key={attraction.id}>
+                     <li className="search-results-li" key={attraction.id}>
                         {AttractionSearchItem(attraction.properties)}
                      </li>
                   )                  
