@@ -1,0 +1,21 @@
+.search-box-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   border: 3px solid green;
+}
+
+.search-results-container {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   border: 3px solid blue;
+}
+
+.search-results-ul {
+   border: 3px solid red;
+}
+
+.search-results-li {
+   border: 3px solid red;
+}

@@ -3,7 +3,6 @@ import {
    useState,
    useContext
 } from 'react';
-import { AuthContext } from '../../context/AuthContext';
 import { 
    Box,
    Button,
@@ -17,8 +16,10 @@ import {
    FormHelperText 
 } from '@material-ui/core';
 
+import { AuthContext } from '../../context/AuthContext';
 import AttractionSearchItem from './AttractionListItem';
 
+import "./Attractions.css";
 
 // styling
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
@@ -124,7 +125,7 @@ function Attractions() {
       try {
          const cityCoordinates = await searchCity(searchedCity);
          const attractions = await searchAttractions(cityCoordinates, attractionType, distance);
-         
+
          setValidAttractions(attractions);
 
          // attractions.map((attraction) => {
@@ -143,7 +144,8 @@ function Attractions() {
             Welcome back {user.username}
          </div>
          
-         <Box>
+         <div className="search-box-container">
+         <Box sx={{display: "inline"}}>
             {/* city search */}
             <FormControl sx={{ m: 1}} variant="standard">
                <InputLabel htmlFor="demo-customized-textbox">City</InputLabel>
@@ -194,11 +196,15 @@ function Attractions() {
                </NativeSelect>
                <FormHelperText>Distance</FormHelperText>
             </FormControl>
-            
-            <Button sx={{ m: 1}} variant="contained" onClick={handleOnSubmit}>Search</Button>
-         </Box>
 
-         <div>
+            <Box>
+            <Button sx={{ m: 1}} variant="contained" onClick={handleOnSubmit}>Search</Button>
+            </Box>
+            
+         </Box>
+         </div>
+         
+         <div className="search-results-container">
             <ul>
             {
                validAttractions.map((attraction) => {

@@ -17,8 +17,9 @@ function AttractionSearchItem(props) {
       rate
    } = props;
 
-   console.log("typeof dist");
-   console.log(typeof dist);
+   if(name === null) {
+      return null;
+   }
 
    function convertedToMiles(dist) {
       const miles = dist / 1609.34;
