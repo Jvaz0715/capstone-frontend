@@ -1,17 +1,18 @@
 import * as React from 'react';
+import { Link } from "react-router-dom";
+
 import {
    Box,
    Card,
    CardContent,
-   CardMedia,
    Typography
 } from "@material-ui/core"
 
 
 
 function AttractionSearchItem(props) {
-
    const {
+      xid,
       name, 
       dist, 
       rate
@@ -30,7 +31,13 @@ function AttractionSearchItem(props) {
    const distInMiles = convertedToMiles(dist);
    
    return (
-      <Box sx={{ width: 400, marginBottom: 10 }}>
+      <Link
+         to={{
+            pathname: `/attraction-detail/${xid}`,
+            search: `?t=${xid}`
+         }}
+      >
+         <Box sx={{ width: 400, marginBottom: 10 }}>
          <Card sx={{ display: 'flex',}}>
             <Box sx={{ display: 'flex', flexDirection: "row"}}>
                <Box sx={{ display: 'flex', flexDirection: "column", width: "75%" }}>
@@ -65,6 +72,7 @@ function AttractionSearchItem(props) {
             </Box>
          </Card>
       </Box>
+      </Link>
    );
 };
 

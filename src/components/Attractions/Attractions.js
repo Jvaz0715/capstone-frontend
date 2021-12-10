@@ -206,7 +206,6 @@ function Attractions() {
             <ul className="search-results-ul">
             {
                validAttractions.map((attraction) => {
-                  console.log(attraction.properties.name)
                   return (
                      <li className="search-results-li" key={attraction.id}>
                         {AttractionSearchItem(attraction.properties)}
