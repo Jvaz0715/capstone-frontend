@@ -15,22 +15,28 @@ import {
 
 
 function AttractionDetail(props) {
+   const xidURL = props.match.params.xid;
+   // standard in object return
+   const [xid, setXid] = useState(xidURL);
    const [attractionName, setAttractionName] = useState("");
-   const [image, setImage] = useState("default image");
-   const [attractionInfo, setAttractionInfo] = useState("default info");
    const [city, setCity] = useState("");
    const [states, setStates] = useState("");
    const [country, setCountry] = useState("");
-   const [externalURL, setExternalURL] = useState("default externalURL");
-   const [wikiPage, setWikiPage] = useState("wikipage");
 
-   const xid = props.match.params.xid;
+   // not all data has these, place default data
+   const [image, setImage] = useState("default image");
+   const [attractionInfo, setAttractionInfo] = useState("default info");
+   const [externalURL, setExternalURL] = useState("default externalURL");
+   const [wikiPageURL, setWikiPageURL] = useState("wikiPageURL");
+
+
    // if country is USA, just give state, otherwise use country
    const useStateOrCountry = country === "United States of America" ? states : country;
 
    async function fetchAttractionDetails(xid) {
       try {
-         const attractionDetails = await axios.get(`https://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${process.env.REACT_APP_MAP_APIKEY}`);
+         const attractionDetails = await axios.get(`https://api.opentripmap.com/0.1/en/places/xid/${xidURL}?apikey=${process.env.REACT_APP_MAP_APIKEY}`);
+         console.log(attractionDetails.data)
          
          // standard data all objects have
          setAttractionName(attractionDetails.data.name);
@@ -42,7 +48,7 @@ function AttractionDetail(props) {
          attractionDetails.data.preview.source && setImage(attractionDetails.data.preview.source);
          attractionDetails.data.wikipedia_extracts.text && setAttractionInfo(attractionDetails.data.wikipedia_extracts.text);
          attractionDetails.data.url && setExternalURL(attractionDetails.data.url);
-         attractionDetails.data.wikipedia && setWikiPage(attractionDetails.data.wikipedia);
+         attractionDetails.data.wikipedia && setWikiPageURL(attractionDetails.data.wikipedia);
 
       } catch(e) {
          console.log(e)
@@ -50,7 +56,7 @@ function AttractionDetail(props) {
    };
 
    useEffect(()=>{
-      fetchAttractionDetails(xid)
+      fetchAttractionDetails(xidURL)
    }, []);
 
    return (
