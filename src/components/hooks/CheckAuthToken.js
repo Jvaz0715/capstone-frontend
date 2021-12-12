@@ -1,7 +1,7 @@
 import jwtDecode from "jwt-decode";
 import { useContext } from "react";
 import {AuthContext} from "../../context/AuthContext";
-// import setAxiosAuthToken from "./setAxiosAuthToken";
+import setAxiosAuthToken from "./setAxiosAuthToken";
 
 //ref: auth-reducer-hooks-frontend-v2
 
@@ -18,10 +18,10 @@ function CheckAuthToken() {
          let decodedToken = jwtDecode(jwtToken);
 
          if(decodedToken.exp < currentTime) {
-            // setAxiosAuthToken(null);
+            setAxiosAuthToken(null);
             return false;
          } else {
-            // setAxiosAuthToken(jwtToken);
+            setAxiosAuthToken(jwtToken);
             return true;
          }
       } else {

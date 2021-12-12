@@ -1,4 +1,4 @@
-import Axios from "./useFetchAPI";
+import Axios from "./Axios";
 
 function setAxiosAuthToken(jwtToken) {
    if (jwtToken) {

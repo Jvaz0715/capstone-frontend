@@ -3,6 +3,7 @@ import React, {
    useEffect
 } from 'react';
 import axios from "axios";
+import Axios from '../hooks/Axios';
 import {
    Box,
    Card,
@@ -33,10 +34,9 @@ function AttractionDetail(props) {
    // if country is USA, just give state, otherwise use country
    const useStateOrCountry = country === "United States of America" ? states : country;
 
-   async function fetchAttractionDetails(xid) {
+   async function fetchAttractionDetails(xidURL) {
       try {
          const attractionDetails = await axios.get(`https://api.opentripmap.com/0.1/en/places/xid/${xidURL}?apikey=${process.env.REACT_APP_MAP_APIKEY}`);
-         console.log(attractionDetails.data)
          
          // standard data all objects have
          setAttractionName(attractionDetails.data.name);
@@ -54,6 +54,27 @@ function AttractionDetail(props) {
          console.log(e)
       };
    };
+
+   async function addToFavorites(e) {
+      try {
+         let faveAttraction = {
+            xid,
+            attractionName,
+            city,
+            states,
+            country,
+            image,
+            attractionInfo,
+            externalURL,
+            wikiPageURL
+         }
+
+         console.log("faveAttraction should show it all")
+         console.log(faveAttraction)
+      } catch(e){
+         console.log(e)
+      };
+   }
 
    useEffect(()=>{
       fetchAttractionDetails(xidURL)
@@ -80,7 +101,7 @@ function AttractionDetail(props) {
                </Typography>
             </CardContent>
             <CardActions>
-               <Button size="small" variant="outlined">Share</Button>
+               <Button size="small" variant="outlined" onClick={addToFavorites}>Save</Button>
                <Button size="small" variant="outlined">Learn More</Button>
                <Button size="small" variant="outlined">Wiki</Button>
             </CardActions>
