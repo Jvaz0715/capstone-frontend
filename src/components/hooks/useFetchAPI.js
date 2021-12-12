@@ -49,10 +49,7 @@ function useFetchAPI(url) {
          let response = await axios.post(baseURL + url, userObj);
          // look at backend for message user created
          
-         // let jwtToken = response.data.payload;
-         // let decodedToken = jwtDecode(jwtToken);
-         // console.log(decodedToken)
-         // localStorage.setItem("jwtToken", jwtToken);
+
 
 
          if (response.data.message === "Success! User created") {
