@@ -69,8 +69,12 @@ function AttractionDetail(props) {
             wikiPageURL
          }
 
-         console.log("faveAttraction should show it all")
-         console.log(faveAttraction)
+         // console.log("faveAttraction should show it all")
+         // console.log(faveAttraction)
+
+         let success = await Axios.post("/api/favorite-attractions/add-attraction-to-favorites", faveAttraction)
+         console.log("success")
+         console.log(success)
       } catch(e){
          console.log(e)
       };
