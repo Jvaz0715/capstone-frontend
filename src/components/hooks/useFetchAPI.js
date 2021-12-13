@@ -5,14 +5,15 @@ import {
 } from 'react';
 import axios from "axios";
 // import jwtDecode from 'jwt-decode';
+import Axios from './Axios';
 
 import { AuthContext } from '../../context/AuthContext';
 
 // if login use login as url or sign up
 function useFetchAPI(url) {
-   const baseURL = process.env.NODE_ENV === "development"
-   ? "http://localhost:3001/api"
-   : "/api/";
+   // const baseURL = process.env.NODE_ENV === "development"
+   // ? "http://localhost:3001/api"
+   // : "/api/";
 
    const [isLoading, setIsLoading] = useState(false);
    const [response, setResponse] = useState(null);
@@ -46,7 +47,7 @@ function useFetchAPI(url) {
       };
       
       try {
-         let response = await axios.post(baseURL + url, userObj);
+         let response = await Axios.post(url, userObj);
          // look at backend for message user created
          
 
@@ -84,7 +85,7 @@ function useFetchAPI(url) {
       }
 
       handleAPIFetchCall();
-   }, [isLoading, url, userInfo, baseURL]);
+   }, [isLoading, url, userInfo,]);
 
    return [
       {
