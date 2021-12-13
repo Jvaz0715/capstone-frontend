@@ -72,7 +72,7 @@ function AttractionDetail(props) {
          // console.log("faveAttraction should show it all")
          // console.log(faveAttraction)
 
-         let success = await Axios.post("/api/favorite-attractions/add-attraction-to-favorites", faveAttraction)
+         let success = await Axios.post("/favorite-attractions/add-attraction-to-favorites", faveAttraction)
          console.log("success")
          console.log(success)
       } catch(e){
