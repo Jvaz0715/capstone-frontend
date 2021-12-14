@@ -14,7 +14,6 @@ import {
    Typography
 } from "@material-ui/core";
 
-
 function AttractionDetail(props) {
    const xidURL = props.match.params.xid;
    // standard in object return
@@ -93,6 +92,7 @@ function AttractionDetail(props) {
                image={image}
                alt={attractionName}
             />
+            
             <CardContent>
                <Typography gutterBottom variant="h5" component="div">
                   {attractionName}
