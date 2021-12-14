@@ -4,21 +4,29 @@
 
 .home-container {
    display: flex;
-   background-color: #ff9a8d,;
+   background-color: #da8957;
+   color: white;
    
 }
 
 .left-container,
 .right-container {
    /* border: 2px solid red; */
-   width: 50%;
    height: 100vh;
+}
+
+.left-container {
+   border: 2px solid red;
+   width: 45%;
+   height: 100vh;
+   background-color: rgb(189, 188, 188);
 }
 
 .right-container {
    display: flex;
    align-items: center;
    justify-content: center;
+   width: 65%;
 }
 
 .travel-img {

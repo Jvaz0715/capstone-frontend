@@ -49,7 +49,7 @@ function Navbar() {
 
    return (
       <div className={classes.root}>
-         <AppBar position="static" style={{ background: '#008080' }}>
+         <AppBar position="static" style={{ background: '#077b8a' }}>
             <Toolbar>
                <Typography variant="h6" className={classes.title}>
                   <Link to="/">
