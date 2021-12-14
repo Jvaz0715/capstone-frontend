@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
    },
 }));
 
-function Navbar() {
+function Navbar(props) {
    const classes = useStyles();
    const { logUserIn, logUserOut } = CheckAuthToken();
 
@@ -45,11 +45,12 @@ function Navbar() {
    const navLinkDisplayTwo = isUserLoggedIn ? "Logout" : "Sign Up";
 
 
-   const navLinkDisplayThree = isUserLoggedIn && "Search Attractions";;
+   const navLinkDisplayThree = isUserLoggedIn && "Search Attractions";
+
 
    return (
       <div className={classes.root}>
-         <AppBar position="static" style={{ background: '#077b8a' }}>
+         <AppBar position="static" style={{ background: '#1978a5' }}>
             <Toolbar>
                <Typography variant="h6" className={classes.title}>
                   <Link to="/">
