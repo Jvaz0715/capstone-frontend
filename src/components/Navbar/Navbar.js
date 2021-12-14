@@ -44,13 +44,12 @@ function Navbar() {
 
    const navLinkDisplayTwo = isUserLoggedIn ? "Logout" : "Sign Up";
 
-   const navLinkTitleThree = isUserLoggedIn ? "/attractions" : "/sign-up";
 
-   const navLinkDisplayThree = isUserLoggedIn ? "Search Attractions" : "";
+   const navLinkDisplayThree = isUserLoggedIn && "Search Attractions";;
 
    return (
       <div className={classes.root}>
-         <AppBar position="static">
+         <AppBar position="static" style={{ background: '#008080' }}>
             <Toolbar>
                <Typography variant="h6" className={classes.title}>
                   <Link to="/">

@@ -1,0 +1,33 @@
+* {
+   box-sizing: border-box;
+}
+
+.home-container {
+   display: flex;
+   background-color: #ff9a8d,;
+   
+}
+
+.left-container,
+.right-container {
+   /* border: 2px solid red; */
+   width: 50%;
+   height: 100vh;
+}
+
+.right-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.travel-img {
+   width: 100%; 
+   height: 100%;
+   object-fit: cover;
+}
+
+.home-info {
+   /* border: 2px solid red; */
+   width: 300px;
+}
