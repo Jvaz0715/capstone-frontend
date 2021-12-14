@@ -6,6 +6,7 @@ import {
    Typography,
    Button,
 } from "@material-ui/core";
+import MapIcon from '@mui/icons-material/Map';
 import {NavLink, Link } from "react-router-dom";
 import { AuthContext } from '../../context/AuthContext';
 import CheckAuthToken from '../hooks/CheckAuthToken';
@@ -52,9 +53,9 @@ function Navbar(props) {
       <div className={classes.root}>
          <AppBar position="static" style={{ background: '#1978a5' }}>
             <Toolbar>
-               <Typography variant="h6" className={classes.title}>
-                  <Link to="/">
-                     Nearby
+               <Typography variant="h6" className={classes.title} style={{fontFamily: 'Merriweather, serif',}}>
+                  <Link to="/" style={{color: "white", textDecoration:"none"}}>
+                     Nearby <MapIcon/> 
                   </Link>
                </Typography>
 
