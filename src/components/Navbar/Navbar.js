@@ -6,6 +6,7 @@ import {
    Typography,
    Button,
 } from "@material-ui/core";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MapIcon from '@mui/icons-material/Map';
 import {NavLink, Link } from "react-router-dom";
 import { AuthContext } from '../../context/AuthContext';
@@ -39,14 +40,14 @@ function Navbar(props) {
 
    const navLinkTitleOne = isUserLoggedIn ? "/profile" : "/login";
 
-   const navLinkDisplayOne = isUserLoggedIn ? `${user.email}` : "login";
+   const navLinkDisplayOne = isUserLoggedIn ? <AccountCircleIcon/> : "login";
 
    const navLinkTitleTwo = isUserLoggedIn ? "/" : "/sign-up";
 
    const navLinkDisplayTwo = isUserLoggedIn ? "Logout" : "Sign Up";
 
 
-   const navLinkDisplayThree = isUserLoggedIn && "Search Attractions";
+   const navLinkDisplayThree = isUserLoggedIn ? "Search" : "";
 
 
    return (
@@ -59,19 +60,22 @@ function Navbar(props) {
                   </Link>
                </Typography>
 
+               <NavLink activeStyle={{color: "red"}} exact to={navLinkTitleOne}>
+                  <Button 
+                  color="inherit" 
+                  style={{color: "white"}}
+                  >
+                     {navLinkDisplayOne}
+                  </Button>
+               </NavLink>
+
                {isUserLoggedIn &&
                   <NavLink activeStyle={{color: "red"}} exact to="/attractions">
-                     <Button color="inherit" style={{color: "white"}}>
+                     <Button color="inherit" style={{color: "white", backgroundColor: ""}}>
                         {navLinkDisplayThree}
                      </Button>
                   </NavLink>
                }
-
-               <NavLink activeStyle={{color: "red"}} exact to={navLinkTitleOne}>
-                  <Button color="inherit" style={{color: "white"}}>
-                     {navLinkDisplayOne}
-                  </Button>
-               </NavLink>
 
                <NavLink activeStyle={{color: "red"}} exact to={navLinkTitleTwo}>
                   <Button 

@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar/Navbar";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.js";
 const Home = React.lazy(() => import("./components/Home/Home.js"));
 const Auth = React.lazy(() => import("./components/Auth/Auth"));
+const Profile = React.lazy(() => import("./components/Profile/Profile"));
 const Attractions = React.lazy(() => import("./components/Attractions/Attractions"));
 const AttractionDetail = React.lazy(() => import("./components/Attractions/AttractionDetail"))
 
@@ -49,6 +50,13 @@ function MainRouter(props) {
                exact
                path="/attraction-detail/:xid"
                component={AttractionDetail}
+            />
+
+            {/* Profile Page */}
+            <PrivateRoute
+               exact
+               path="/profile"
+               component={Profile}
             />
 
          </Switch>
