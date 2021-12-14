@@ -15,6 +15,8 @@ import useChangeInputConfig from '../hooks/useInput';
 import useFetchAPI from '../hooks/useFetchAPI';
 import CheckAuthToken from '../hooks/CheckAuthToken';
 
+import "./Auth.css"
+
 const useStyles = makeStyles((theme) => ({
    root: {
       "& > *": {
@@ -241,7 +243,7 @@ function Auth(props) {
                   type="submit"
                   variant="contained"
                   color="primary"
-                  style={{marginTop: 10}}
+                  className="auth-button"
                   disabled={
                      isLoginRoute
                         ? isEmailDisabled || 
