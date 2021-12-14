@@ -60,7 +60,7 @@ function Navbar(props) {
                   </Link>
                </Typography>
 
-               <NavLink activeStyle={{color: "red"}} exact to={navLinkTitleOne}>
+               <NavLink style={{textDecoration: "none"}} exact to={navLinkTitleOne}>
                   <Button 
                   color="inherit" 
                   style={{color: "white"}}
@@ -70,14 +70,14 @@ function Navbar(props) {
                </NavLink>
 
                {isUserLoggedIn &&
-                  <NavLink activeStyle={{color: "red"}} exact to="/attractions">
-                     <Button color="inherit" style={{color: "white", backgroundColor: ""}}>
+                  <NavLink style={{textDecoration: "none"}} exact to="/attractions">
+                     <Button color="inherit" style={{color: "white", backgroundColor: "",}}>
                         {navLinkDisplayThree}
                      </Button>
                   </NavLink>
                }
 
-               <NavLink activeStyle={{color: "red"}} exact to={navLinkTitleTwo}>
+               <NavLink exact to={navLinkTitleTwo} style={{textDecoration: "none"}}>
                   <Button 
                   color="inherit" 
                   style={{color: "white"}}

@@ -62,6 +62,8 @@
 }
 
 .home-button {
+   text-decoration: 'none';
+   /* color: 'inherit'; */
    color: #1978a5;
    background-color: rgb(240, 239, 239);
 }
