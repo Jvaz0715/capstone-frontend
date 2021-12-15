@@ -12,6 +12,7 @@ const Auth = React.lazy(() => import("./components/Auth/Auth"));
 const Profile = React.lazy(() => import("./components/Profile/Profile"));
 const Attractions = React.lazy(() => import("./components/Attractions/Attractions"));
 const AttractionDetail = React.lazy(() => import("./components/Attractions/AttractionDetail"))
+const FaveAttractions = React.lazy(() => import("./components/Attractions/FaveAttractions/FaveAttractions.js"));
 
 function MainRouter(props) {
    return (
@@ -57,6 +58,13 @@ function MainRouter(props) {
                exact
                path="/profile"
                component={Profile}
+            />
+
+            {/* Favorites component */}
+            <PrivateRoute
+               exact
+               path="/fave-attractions"
+               component={FaveAttractions}
             />
 
          </Switch>

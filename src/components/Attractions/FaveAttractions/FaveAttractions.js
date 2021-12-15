@@ -8,7 +8,7 @@ import axios from 'axios';
 function FaveAttractions() {
    return (
       <div>
-         
+         Fave Attractions!
       </div>
    )
 }

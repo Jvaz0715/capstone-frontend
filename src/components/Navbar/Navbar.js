@@ -47,7 +47,7 @@ function Navbar(props) {
    const navLinkDisplayTwo = isUserLoggedIn ? "Logout" : "Sign Up";
 
 
-   const navLinkDisplayThree = isUserLoggedIn ? "Search" : "";
+   // const navLinkDisplayThree = isUserLoggedIn ? "Search" : "";
 
 
    return (
@@ -61,11 +61,19 @@ function Navbar(props) {
                </Typography>
 
                {isUserLoggedIn &&
-                  <NavLink style={{textDecoration: "none"}} exact to="/attractions">
-                     <Button color="inherit" style={{color: "white", backgroundColor: "",}}>
-                        {navLinkDisplayThree}
-                     </Button>
-                  </NavLink>
+                  <>
+                     <NavLink style={{textDecoration: "none"}} exact to="/attractions">
+                        <Button color="inherit" style={{color: "white", backgroundColor: "",}}>
+                           Search
+                        </Button>
+                     </NavLink>
+                     <NavLink style={{textDecoration: "none"}} exact to="/fave-attractions">
+                        <Button color="inherit" style={{color: "white", backgroundColor: "",}}>
+                           Favorites
+                        </Button>
+                     </NavLink>
+                  </>
+                  
                }
 
                <NavLink exact to={navLinkTitleTwo} style={{textDecoration: "none"}}>
