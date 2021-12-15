@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
    useState,
+   useEffect,
    useContext
 } from 'react';
 import { 
@@ -65,6 +66,30 @@ function Attractions() {
    const [distance, setDistance] = useState(0);
 
    const [validAttractions, setValidAttractions] = useState([]);
+   const previousSearchObj = JSON.parse(window.sessionStorage.getItem("prevSearchedData"));
+
+   useEffect(()=> {
+      if(previousSearchObj) {
+         fetchPrevious();
+      }
+      
+   }, [searchedCity])
+
+   async function fetchPrevious() {
+      try {
+         const {
+            cityCoordinates, 
+            attractionType, 
+            distance
+         } = previousSearchObj;
+         
+         const attractions = await searchAttractions(cityCoordinates, attractionType, distance);
+         setValidAttractions(attractions);
+         
+      } catch (e) {
+         console.log(e)
+      };
+   };
 
    const handleOnChange = (e) => {
       if (e.target.name === "searchedCity"){
@@ -81,7 +106,7 @@ function Attractions() {
    const searchCity = async(cityName) => {
       try{
          let cityData = await axios.get(`https://api.opentripmap.com/0.1/en/places/geoname?name=${cityName}&apikey=${process.env.REACT_APP_MAP_APIKEY}`);
-      
+
          return {
             lat: cityData.data.lat,
             lon: cityData.data.lon,
@@ -109,6 +134,15 @@ function Attractions() {
       try {
             const cityCoordinates = await searchCity(searchedCity);
             const attractions = await searchAttractions(cityCoordinates, attractionType, distance);
+
+            window.sessionStorage.setItem("prevSearchedData", JSON.stringify({
+               cityCoordinates: {
+                  lat: cityCoordinates.lat, 
+                  lon: cityCoordinates.lon,
+               },
+               attractionType,
+               distance
+            }));
 
             setValidAttractions(attractions);
       } catch(e) {

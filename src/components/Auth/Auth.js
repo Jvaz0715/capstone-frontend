@@ -105,7 +105,7 @@ function Auth(props) {
       handleConfirmPasswordChange,
       isConfirmPasswordError,
       confirmPasswordErrorMessage,
-      isConfirmPasswordDisabled,
+      ,
       clearConfirmPasswordInput
    ] = useChangeInputConfig("confirmPassword");
 
