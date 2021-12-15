@@ -212,6 +212,7 @@ function Auth(props) {
                   fullWidth
                   label="Password"
                   name="password"
+                  type="password"
                   value={password}
                   onChange={handlePasswordChange}
                   error={isPasswordError}
@@ -228,6 +229,7 @@ function Auth(props) {
                         fullWidth
                         label="Confirm Password"
                         name="confirmPassword"
+                        type="password"
                         value={confirmPassword}
                         onChange={handleConfirmPasswordChange}
                         error={isConfirmPasswordError}

@@ -65,7 +65,6 @@ function Attractions() {
    const [distance, setDistance] = useState(0);
 
    const [validAttractions, setValidAttractions] = useState([]);
-   const [searchButtonDisabled, setSearchButtonDisabled] = useState(true);
 
    const handleOnChange = (e) => {
       if (e.target.name === "searchedCity"){
