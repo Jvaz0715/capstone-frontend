@@ -48,6 +48,7 @@ function CheckAuthToken() {
 
    function logUserOut() {
       localStorage.removeItem("jwtToken")
+      sessionStorage.removeItem("prevSearchedData")
 
       dispatch({
          type: "LOGOUT"

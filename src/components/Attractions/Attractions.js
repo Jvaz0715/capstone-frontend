@@ -71,8 +71,8 @@ function Attractions() {
    useEffect(()=> {
       if(previousSearchObj) {
          fetchPrevious();
-      }
-      
+      } 
+   
    }, [searchedCity])
 
    const handleOnChange = (e) => {
