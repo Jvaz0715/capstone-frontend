@@ -60,15 +60,6 @@ function Navbar(props) {
                   </Link>
                </Typography>
 
-               <NavLink style={{textDecoration: "none"}} exact to={navLinkTitleOne}>
-                  <Button 
-                  color="inherit" 
-                  style={{color: "white"}}
-                  >
-                     {navLinkDisplayOne}
-                  </Button>
-               </NavLink>
-
                {isUserLoggedIn &&
                   <NavLink style={{textDecoration: "none"}} exact to="/attractions">
                      <Button color="inherit" style={{color: "white", backgroundColor: "",}}>
@@ -84,6 +75,15 @@ function Navbar(props) {
                   onClick={()=> logUserOut()}
                   >
                      {navLinkDisplayTwo}
+                  </Button>
+               </NavLink>
+
+               <NavLink style={{textDecoration: "none"}} exact to={navLinkTitleOne}>
+                  <Button 
+                  color="inherit" 
+                  style={{color: "white"}}
+                  >
+                     {navLinkDisplayOne}
                   </Button>
                </NavLink>
             </Toolbar>

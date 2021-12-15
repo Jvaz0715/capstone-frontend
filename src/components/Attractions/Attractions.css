@@ -1,9 +1,14 @@
-.search-box-container {
+.attractions-page-container {
    display: flex;
    flex-direction: column;
-   align-items: center;
    justify-content: center;
-   border: 3px solid green;
+   align-items: center;
+}
+
+.search-box-container {
+   width: 500px;
+   display: flex;
+   flex-direction: column;
 }
 
 .search-results-container {

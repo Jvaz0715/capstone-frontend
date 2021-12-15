@@ -139,14 +139,14 @@ function Attractions() {
 
    
    return (
-      <>
+      <div className='attractions-page-container'>
          <div>
             Welcome back {user.username}
          </div>
          
          {/* Search container */}
          <div className="search-box-container">
-            <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+            <Box style={{display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center"}}>
                {/* city search */}
                <FormControl sx={{ m: 1}} variant="standard">
                <InputLabel htmlFor="demo-customized-textbox">City</InputLabel>
@@ -188,7 +188,7 @@ function Attractions() {
                   onChange={handleOnChange}
                   input={<BootstrapInput />}
                >
-                  <option aria-label="None" value="" />
+                  {/* <option aria-label="None" value="" /> */}
                   <option value={1610}>1 mi</option>
                   <option value={3219}>2 mi</option>
                   <option value={4828}>3 mi</option>
@@ -217,7 +217,7 @@ function Attractions() {
          </div>
 
 
-      </>
+      </div>
    )
 }
 
