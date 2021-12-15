@@ -75,22 +75,6 @@ function Attractions() {
       
    }, [searchedCity])
 
-   async function fetchPrevious() {
-      try {
-         const {
-            cityCoordinates, 
-            attractionType, 
-            distance
-         } = previousSearchObj;
-         
-         const attractions = await searchAttractions(cityCoordinates, attractionType, distance);
-         setValidAttractions(attractions);
-         
-      } catch (e) {
-         console.log(e)
-      };
-   };
-
    const handleOnChange = (e) => {
       if (e.target.name === "searchedCity"){
          setSearchedCity(e.target.value);
@@ -101,6 +85,22 @@ function Attractions() {
       } else {
          return;
       }
+   };
+
+   const fetchPrevious = async () => {
+      try {
+         const {
+            cityCoordinates, 
+            attractionType, 
+            distance
+         } = previousSearchObj;
+         
+         const attractions = await searchAttractions(cityCoordinates, attractionType, distance);
+         setValidAttractions(attractions);
+
+      } catch (e) {
+         console.log(e)
+      };
    };
 
    const searchCity = async(cityName) => {
@@ -156,7 +156,7 @@ function Attractions() {
             Welcome back {user.username}
          </div>
          
-         {/* Search container */}
+         {/* Search Box Container */}
          <div className="search-box-container">
             <Box style={{display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center"}}>
                {/* city search */}
@@ -222,7 +222,8 @@ function Attractions() {
                >Search</Button>
             </Box>
          </div>
-         
+
+         {/* Search Results Container */}
          <div className="search-results-container">
             <ul className="search-results-ul">
             {
