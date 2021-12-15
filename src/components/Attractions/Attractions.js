@@ -65,6 +65,7 @@ function Attractions() {
    const [distance, setDistance] = useState(0);
 
    const [validAttractions, setValidAttractions] = useState([]);
+   const [searchButtonDisabled, setSearchButtonDisabled] = useState(true);
 
    const handleOnChange = (e) => {
       if (e.target.name === "searchedCity"){
@@ -105,38 +106,16 @@ function Attractions() {
       }
    };
 
-   // const attractionInfo = async (xid) => {
-   //    try {
-   //       const attractionData = await axios.get(`https://api.opentripmap.com/0.1/en/places/xid/${xid}?apikey=${process.env.REACT_APP_MAP_APIKEY}`);
-
-   //       if(attractionData.data.wikipedia && attractionData.data.preview.source) {
-   //          const newValidAttractionsArray = [...validAttractions, attractionData];
-   //          setValidAttractions(newValidAttractionsArray);
-   //       }
-
-   //       return attractionData;
-
-   //    } catch(e) {
-   //       console.log(e)
-   //    }
-   // }
-
    const handleOnSubmit = async () => {
       try {
-         const cityCoordinates = await searchCity(searchedCity);
-         const attractions = await searchAttractions(cityCoordinates, attractionType, distance);
+            const cityCoordinates = await searchCity(searchedCity);
+            const attractions = await searchAttractions(cityCoordinates, attractionType, distance);
 
-         setValidAttractions(attractions);
-
-         // attractions.map((attraction) => {
-         //    attractionInfo(attraction)
-         // });
-
+            setValidAttractions(attractions);
       } catch(e) {
          console.log(e);
       }
-   }
-
+   };
    
    return (
       <div className='attractions-page-container'>
@@ -155,8 +134,8 @@ function Attractions() {
                </FormControl>
             
                {/* attraction type */}
-               <FormControl sx={{ m: 1}} variant="standard">
-               <InputLabel id="demo-simple-select-label">Attraction</InputLabel>
+               <FormControl   variant="standard">
+               <InputLabel id="demo-simple-select-label" >Attraction</InputLabel>
                <Select
                   labelid="demo-simple-select-label"
                   id="demo-customized-select"
@@ -177,7 +156,7 @@ function Attractions() {
                </FormControl>
       
                {/* distance in miles */}
-               <FormControl sx={{ m: 1}} variant="standard">
+               <FormControl sx={{ m: 3}} variant="standard">
                <InputLabel id="demo-simple-select-label">Distance</InputLabel>
                <NativeSelect
                   labelid="demo-simple-select-label"
@@ -188,7 +167,7 @@ function Attractions() {
                   onChange={handleOnChange}
                   input={<BootstrapInput />}
                >
-                  {/* <option aria-label="None" value="" /> */}
+                  <option aria-label="None" value="" />
                   <option value={1610}>1 mi</option>
                   <option value={3219}>2 mi</option>
                   <option value={4828}>3 mi</option>
@@ -198,7 +177,16 @@ function Attractions() {
                <FormHelperText>Distance</FormHelperText>
                </FormControl>
 
-               <Button sx={{ m: 1}} variant="contained" onClick={handleOnSubmit}>Search</Button>
+               <Button 
+                  sx={{ m: 1}} 
+                  variant="contained" 
+                  onClick={handleOnSubmit} 
+                  disabled={
+                     searchedCity.length === 0 
+                     || attractionType.length === 0 
+                     || distance === 0 ? true : false
+                  }
+               >Search</Button>
             </Box>
          </div>
          
