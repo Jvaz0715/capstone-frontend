@@ -114,8 +114,15 @@ function Auth(props) {
       e.preventDefault();
 
       const user = isLoginRoute
-         ? {email, password}
-         : {firstName, lastName, username, email, password};
+         ? {
+            email, password
+         }
+         : {
+            firstName, 
+            lastName, 
+            username: username.toLowerCase(), email: email.toLowerCase(), 
+            password
+         };
       
       handleAPICallButtonSubmit({...user})
    
