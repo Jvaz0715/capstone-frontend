@@ -166,6 +166,24 @@ function Auth(props) {
       );
    };
 
+   if(isLoading) {
+      return (
+         <div style={{ textAlign: "center"}}>
+            <CircularProgress />
+         </div>
+      )
+   };
+
+   if (response === "User created! Proceed to Login.") {
+      clearFirstNameInput();
+      clearLastNameInput();
+      clearEmailInput();
+      clearUsernameInput();
+      clearPasswordInput();
+      clearConfirmPasswordInput();
+      setResponse(null);
+   }
+
    if (checkIfTokenExists()) {
       if(props.location.pathname ==="/login" || props.location.pathname === "/sign-up") {
          props.history.push("/attractions")

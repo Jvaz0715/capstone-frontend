@@ -3,18 +3,13 @@ import {
    useEffect,
    useContext,
 } from 'react';
-// import axios from "axios";
-// import jwtDecode from 'jwt-decode';
+
 import Axios from './Axios';
 
 import { AuthContext } from '../../context/AuthContext';
 
 // if login use login as url or sign up
 function useFetchAPI(url) {
-   // const baseURL = process.env.NODE_ENV === "development"
-   // ? "http://localhost:3001/api"
-   // : "/api/";
-
    const [isLoading, setIsLoading] = useState(false);
    const [response, setResponse] = useState(null);
    const [error, setError] = useState(null);
@@ -69,8 +64,6 @@ function useFetchAPI(url) {
             })
          }
       } catch(e) {
-         console.log("hello james, e.response")
-         console.log(e.response.data.message)
          setError(e.response.data.message);
          setIsLoading(false);
          handleMessageOpen();
