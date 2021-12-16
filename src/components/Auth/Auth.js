@@ -115,12 +115,14 @@ function Auth(props) {
 
       const user = isLoginRoute
          ? {
-            email, password
+            email, 
+            password
          }
          : {
             firstName, 
             lastName, 
-            username: username.toLowerCase(), email: email.toLowerCase(), 
+            username: username.toLowerCase(), 
+            email: email.toLowerCase(), 
             password
          };
       
