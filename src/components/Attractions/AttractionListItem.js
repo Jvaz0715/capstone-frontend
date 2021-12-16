@@ -5,7 +5,8 @@ import {
    Box,
    Card,
    CardContent,
-   Typography
+   Typography,
+   Button
 } from "@material-ui/core"
 
 
@@ -48,14 +49,15 @@ function AttractionSearchItem(props) {
                   </CardContent>
 
                   {/* put buttons */}
-                  <Box>
+                  <Box style={{marginLeft: "10px", marginBottom: "10px"}}>
                      <Link
                         to={{
                            pathname: `/attraction-detail/${xid}`,
                            search: `?t=${xid}`
                         }}
+                        style={{textDecoration: "none", marginBottom: "5px"}}
                      >
-                        <button>Learn more</button>
+                        <Button variant="outlined">Learn more</Button>
                      </Link>
                   </Box>
 
