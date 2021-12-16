@@ -182,6 +182,7 @@ function Auth(props) {
       clearPasswordInput();
       clearConfirmPasswordInput();
       setResponse(null);
+      props.history.push("/login")
    }
 
    if (checkIfTokenExists()) {
