@@ -121,12 +121,49 @@ function Auth(props) {
    
    };
 
-   function successMessage() {
+   // TODO: Finish functions for error messages
+   function Alert(props) {
+      return <MuiAlert elevation={6} variant='filled' {...props}/>
+   };
 
+   function successMessage() {
+      return (
+         <Snackbar
+            open={isMessageOpen}
+            autoHideDuration={6000}
+            onClose={handleMessageClose}
+            anchorOrigin={{
+               vertical: 'top',
+               horizontal: 'center'
+            }}
+         >
+            <Alert 
+               severity="success"
+            >
+               {successMessageValue}
+            </Alert>
+         </Snackbar>
+      );
    };
 
    function errorMessage() {
-
+      return (
+         <Snackbar
+            open={isMessageOpen}
+            autoHideDuration={6000}
+            onClose={handleMessageClose}
+            anchorOrigin={{
+               vertical: 'top',
+               horizontal: 'center'
+            }}
+         >
+            <Alert 
+               severity="error"
+            >
+               {error}
+            </Alert>
+         </Snackbar>
+      );
    };
 
    if (checkIfTokenExists()) {
@@ -138,10 +175,10 @@ function Auth(props) {
    };
 
    return (
-      <Grid container spacing={0} justifyContent="center">
+      <Grid container spacing={0} justifyContent="center">  
          {successMessageValue && successMessage()}
-         {error && errorMessage()}
-
+         {error && errorMessage()}    
+         
          <form
             className={classes.root}
             onSubmit={handleOnSubmit}

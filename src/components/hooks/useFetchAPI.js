@@ -48,18 +48,14 @@ function useFetchAPI(url) {
       
       try {
          let response = await Axios.post(url, userObj);
-         // look at backend for message user created
          
-
-
-
-         if (response.data.message === "Success! User created") {
+         if (response.data.message === "User created! Proceed to Login.") {
             setResponse(response.data.message);
             handleMessageOpen();
             setIsLoading(false);
             setSuccessMessageValue(response.data.message);
          } else {
-            console.log(response.data.message)
+            
             setIsLoading(false);
             let jwtToken = response.data.payload;
             localStorage.setItem("jwtToken", jwtToken);
@@ -73,7 +69,9 @@ function useFetchAPI(url) {
             })
          }
       } catch(e) {
-         // setError(e.response.data.message);
+         console.log("hello james, e.response")
+         console.log(e.response.data.message)
+         setError(e.response.data.message);
          setIsLoading(false);
          handleMessageOpen();
       };
