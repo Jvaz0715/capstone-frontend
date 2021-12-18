@@ -1,5 +1,8 @@
 import * as React from 'react';
+
 import { Link } from "react-router-dom";
+
+import MuseumLogo from "../images/museum.png";
 
 import {
    Box,
@@ -16,8 +19,12 @@ function AttractionSearchItem(props) {
       xid,
       name, 
       dist, 
-      rate
+      rate,
+      kinds,
    } = props;
+
+   console.log("props")
+   console.log(props.kinds)
 
    if(name === "") {
       return;
@@ -65,11 +72,12 @@ function AttractionSearchItem(props) {
                
                <CardContent sx={{border: "2px solid blue"}}>
                   <img 
-                     src="https://cdn-icons.flaticon.com/png/128/1862/premium/1862600.png?token=exp=1639080949~hmac=d6f5604cd09b073bce7d557ab332b01d"
+                     src={MuseumLogo}
                      alt="Theater"
                      width="70px"
                      height="70px"
                   />
+                  
                </CardContent>
 
             </Box>
