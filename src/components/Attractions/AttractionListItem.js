@@ -3,6 +3,12 @@ import * as React from 'react';
 import { Link } from "react-router-dom";
 
 import MuseumLogo from "../images/museum.png";
+import BankLogo from "../images/bank.png";
+import HistoricalLogo from "../images/coliseum.png";
+import FoodLogo from "../images/restaurant.png";
+import TheaterLogo from "../images/theater.png";
+import TransportLogo from "../images/infrastructure.png";
+import ShopLogo from "../images/shop.png";
 
 import {
    Box,
