@@ -32,6 +32,26 @@ function AttractionSearchItem(props) {
    console.log("props")
    console.log(props.kinds)
 
+   const returnLogo = (kinds) => {
+      if (kinds.includes("theatres")) {
+         return TheaterLogo;
+      } else if(kinds.includes("museums")){
+         return MuseumLogo;
+      } else if(kinds.includes("historic")){
+         return HistoricalLogo;
+      } else if(kinds.includes("bank")){
+         return BankLogo;
+      } else if(kinds.includes("foods")){
+         return FoodLogo;
+      } else if(kinds.includes("shops")){
+         return ShopLogo;
+      } else if(kinds.includes("transport")){
+         return TransportLogo;
+      } else {
+         return;
+      }
+   }
+
    if(name === "") {
       return;
    }
@@ -78,7 +98,7 @@ function AttractionSearchItem(props) {
                
                <CardContent sx={{border: "2px solid blue"}}>
                   <img 
-                     src={MuseumLogo}
+                     src={returnLogo(kinds)}
                      alt="Theater"
                      width="70px"
                      height="70px"
