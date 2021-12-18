@@ -152,8 +152,11 @@ function Attractions() {
    
    return (
       <div className='attractions-page-container'>
-         <div className="search-page-header">
-            Welcome back {user.username}
+         {/* Search Page Banner */}
+         <div className="hero-image">
+            <div className="hero-text">
+               <h1>Nearby Attractions</h1>
+            </div>
          </div>
          
          {/* Search Box Container */}

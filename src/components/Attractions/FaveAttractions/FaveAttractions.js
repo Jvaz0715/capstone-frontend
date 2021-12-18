@@ -12,6 +12,7 @@ function FaveAttractions() {
          const allFavorites = await Axios.get("/favorite-attractions/get-all-fave-attractions");
 
          setFavorites([...allFavorites.data]);
+         
       } catch(e) {
          console.log(e)
       }
