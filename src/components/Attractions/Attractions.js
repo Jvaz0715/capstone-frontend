@@ -152,7 +152,7 @@ function Attractions() {
    
    return (
       <div className='attractions-page-container'>
-         <div>
+         <div className="search-page-header">
             Welcome back {user.username}
          </div>
          

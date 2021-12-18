@@ -11,9 +11,7 @@ function FaveAttractions() {
       try {
          const allFavorites = await Axios.get("/favorite-attractions/get-all-fave-attractions");
 
-         console.log("allFavorites")
-         console.log(allFavorites.data)
-         setFavorites([...allFavorites.data])
+         setFavorites([...allFavorites.data]);
       } catch(e) {
          console.log(e)
       }
@@ -21,8 +19,8 @@ function FaveAttractions() {
 
    useEffect(() => {
       fetchAllFavorites()
-   }, [])
-
+   }, []);
+   
    return (
       <div>
          Fave Attractions!
