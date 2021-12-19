@@ -2,7 +2,10 @@ import React, {
    useState,
    useEffect
 } from 'react';
+import FaveAttractionCard from './FaveAttractionCard';
 import Axios from '../../hooks/Axios';
+
+import "./FaveAttractions.css"
 
 function FaveAttractions() {
    const [favorites, setFavorites] = useState([]);
@@ -35,12 +38,12 @@ function FaveAttractions() {
       wikiPageURL
    */ 
    return (
-      <div>
+      <div className="fave-attractions-container">
          Fave Attractions!
          {
             favorites.map((fave) => {
                return (
-                  <div>{fave.attractionName}</div>
+                  FaveAttractionCard(fave)
                )
             })
          }
