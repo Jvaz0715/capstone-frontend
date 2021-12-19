@@ -149,10 +149,11 @@ function Attractions() {
          console.log(e);
       }
    };
-   
+
    return (
       <div className='attractions-page-container'>
-         {/* Search Page Banner */}
+         
+         {/* Search Page Hero Banner */}
          <div className="hero-image">
             <div className="hero-text">
                <h1>Nearby Attractions</h1>
@@ -162,6 +163,7 @@ function Attractions() {
          {/* Search Box Container */}
          <div className="search-box-container">
             <Box style={{display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center"}}>
+               
                {/* city search */}
                <FormControl sx={{ m: 1}} variant="standard">
                <InputLabel htmlFor="demo-customized-textbox">City</InputLabel>
@@ -171,46 +173,46 @@ function Attractions() {
             
                {/* attraction type */}
                <FormControl   variant="standard">
-               <InputLabel id="demo-simple-select-label" >Attraction</InputLabel>
-               <Select
-                  labelid="demo-simple-select-label"
-                  id="demo-customized-select"
-                  value={attractionType}
-                  name="attractionType"
-                  onChange={handleOnChange}
-                  input={<BootstrapInput />}
-               >
-                  <MenuItem value="museums">Museums</MenuItem>
-                  <MenuItem value="theatres_and_entertainments">Theaters</MenuItem>
-                  <MenuItem value="historic">Historical</MenuItem>
-                  <MenuItem value="foods">Food</MenuItem>
-                  <MenuItem value="shops">Shops</MenuItem>
-                  <MenuItem value="transport">Transportation</MenuItem>
-                  <MenuItem value="banks">Banks</MenuItem>
-               </Select>
-               <FormHelperText>Attraction</FormHelperText>
+                  <InputLabel id="demo-simple-select-label" >Attraction</InputLabel>
+                  <Select
+                     labelid="demo-simple-select-label"
+                     id="demo-customized-select"
+                     value={attractionType}
+                     name="attractionType"
+                     onChange={handleOnChange}
+                     input={<BootstrapInput />}
+                  >
+                     <MenuItem value="museums">Museums</MenuItem>
+                     <MenuItem value="theatres_and_entertainments">Theaters</MenuItem>
+                     <MenuItem value="historic">Historical</MenuItem>
+                     <MenuItem value="foods">Food</MenuItem>
+                     <MenuItem value="shops">Shops</MenuItem>
+                     <MenuItem value="transport">Transportation</MenuItem>
+                     <MenuItem value="banks">Banks</MenuItem>
+                  </Select>
+                  <FormHelperText>Attraction</FormHelperText>
                </FormControl>
       
                {/* distance in miles */}
                <FormControl sx={{ m: 3}} variant="standard">
-               <InputLabel id="demo-simple-select-label">Distance</InputLabel>
-               <NativeSelect
-                  labelid="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={distance}
-                  name="distance"
-                  label="Distance"
-                  onChange={handleOnChange}
-                  input={<BootstrapInput />}
-               >
-                  <option aria-label="None" value="" />
-                  <option value={1610}>1 mi</option>
-                  <option value={3219}>2 mi</option>
-                  <option value={4828}>3 mi</option>
-                  <option value={6437}>4 mi</option>
-                  <option value={8047}>5 mi</option>
-               </NativeSelect>
-               <FormHelperText>Distance</FormHelperText>
+                  <InputLabel id="demo-simple-select-label">Distance</InputLabel>
+                  <NativeSelect
+                     labelid="demo-simple-select-label"
+                     id="demo-simple-select"
+                     value={distance}
+                     name="distance"
+                     label="Distance"
+                     onChange={handleOnChange}
+                     input={<BootstrapInput />}
+                  >
+                     <option aria-label="None" value="" />
+                     <option value={1610}>1 mi</option>
+                     <option value={3219}>2 mi</option>
+                     <option value={4828}>3 mi</option>
+                     <option value={6437}>4 mi</option>
+                     <option value={8047}>5 mi</option>
+                  </NativeSelect>
+                  <FormHelperText>Distance</FormHelperText>
                </FormControl>
 
                <Button 
