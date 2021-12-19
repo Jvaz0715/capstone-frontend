@@ -112,7 +112,7 @@ function AttractionDetail(props) {
                {/* if external website exists*/}
                {
                   externalURL.length > 0 
-                     && <Button size="small" variant="outlined">Learn More</Button>
+                     && <Button size="small" variant="outlined">Website</Button>
                }
                {/* if wiki button exists */}
                {

@@ -1,6 +1,10 @@
 import * as React from 'react';
 
 import {
+   Link
+} from "react-router-dom";
+
+import {
    Box,
    Card,
    CardActions,
@@ -10,15 +14,17 @@ import {
    Typography
 } from "@material-ui/core";
 
+import DeleteOutlineSharpIcon from '@mui/icons-material/DeleteOutlineSharp';
+
 const FaveAttractionCard = (props) => {
    
    const {
       attractionName,
-      attractionInfo,
       city,
       states,
       image,
-      _id
+      _id,
+      xid,
    } = props
 
    return (
@@ -38,13 +44,22 @@ const FaveAttractionCard = (props) => {
             <Typography color="textSecondary">
                   {`${city} | ${states}`}
             </Typography>
-            <Typography variant="body2" color="inherit">
+            {/* <Typography variant="body2" color="inherit">
                {attractionInfo}
-            </Typography>
+            </Typography> */}
          </CardContent>
          <CardActions>
-            <Button size="small">Learn More</Button>
-            <Button size="small">Remove</Button>
+            <Link
+               to={{
+                  pathname: `/attraction-detail/${xid}`,
+                  search: `?t=${xid}`
+               }}
+               style={{textDecoration: "none", marginBottom: "5px"}}
+            >
+               <Button variant="outlined">Learn more</Button>
+            </Link>
+
+            <DeleteOutlineSharpIcon onClick={() => console.log("hello!")}/>
          </CardActions>
       </Card>
       </Box>
