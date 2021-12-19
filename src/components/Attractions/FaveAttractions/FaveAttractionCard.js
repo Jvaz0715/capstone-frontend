@@ -11,9 +11,7 @@ import {
 } from "@material-ui/core";
 
 const FaveAttractionCard = (props) => {
-   console.log("props")
-   console.log(props)
-
+   
    const {
       attractionName,
       attractionInfo,
