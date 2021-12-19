@@ -45,8 +45,8 @@ const FaveAttractionCard = (props) => {
             </Typography>
          </CardContent>
          <CardActions>
-            <Button size="small">Share</Button>
             <Button size="small">Learn More</Button>
+            <Button size="small">Remove</Button>
          </CardActions>
       </Card>
       </Box>
