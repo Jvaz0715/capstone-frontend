@@ -25,7 +25,7 @@ const FaveAttractionCard = (props) => {
       image,
       _id,
       xid,
-   } = props
+   } = props.fave;
 
    return (
       <Box key={_id} sx={{ width: 400, marginBottom: 10 }}>
@@ -59,7 +59,7 @@ const FaveAttractionCard = (props) => {
                </Box>
 
                <Box>
-                  <Button variant="outlined" onClick={() => console.log("hello!")}>
+                  <Button variant="outlined" onClick={() => props.removeFromFavorites(_id)}>
                      <DeleteOutlineSharpIcon />
                   </Button>
                </Box>

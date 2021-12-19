@@ -56,7 +56,7 @@ function AttractionDetail(props) {
       };
    };
 
-   async function addToFavorites(e) {
+   async function addToFavorites() {
       try {
          let faveAttraction = {
             xid,

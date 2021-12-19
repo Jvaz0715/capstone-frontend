@@ -25,6 +25,16 @@ function FaveAttractions() {
       fetchAllFavorites();
    }, []);
 
+   async function removeFromFavorites(_id) {
+      try {
+         const deletedFave = await Axios.delete(`/favorite-attractions/delete-attraction-from-favorites/${_id}`);
+
+         fetchAllFavorites();
+      } catch(e) {
+         console.log(e)
+      }
+   }; 
+
    return (
       <div className="fave-attractions-container">
          <div className="fave-attractions-banner">
@@ -37,7 +47,7 @@ function FaveAttractions() {
          {
             favorites.map((fave) => {
                return (
-                  FaveAttractionCard(fave)
+                  FaveAttractionCard({fave, removeFromFavorites})
                )
             })
          }
