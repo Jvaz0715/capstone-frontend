@@ -25,17 +25,6 @@ function FaveAttractions() {
       fetchAllFavorites();
    }, []);
 
-   /*
-      xid,
-      attractionName,
-      city,
-      states,
-      country,
-      image,
-      attractionInfo,
-      externalURL,
-      wikiPageURL
-   */ 
    return (
       <div className="fave-attractions-container">
          <div className="fave-attractions-banner">

@@ -79,10 +79,10 @@ function AttractionDetail(props) {
       } catch(e){
          console.log(e)
       };
-   }
+   };
 
    useEffect(()=>{
-      fetchAttractionDetails(xidURL)
+      fetchAttractionDetails(xidURL);
    }, []);
 
    return (

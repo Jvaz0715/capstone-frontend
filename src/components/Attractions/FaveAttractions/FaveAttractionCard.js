@@ -29,39 +29,42 @@ const FaveAttractionCard = (props) => {
 
    return (
       <Box key={_id} sx={{ width: 400, marginBottom: 10 }}>
-      <Card sx={{ maxWidth: 345,
-         minWidth: 100, }}>
-         <CardMedia
-            component="img"
-            alt={attractionName}
-            height="140"
-            image={image}
-         />
-         <CardContent>
-            <Typography gutterBottom variant="h5" component="div" color="primary">
-               {attractionName}
-            </Typography>
-            <Typography color="textSecondary">
+         <Card sx={{ maxWidth: 345, minWidth: 100, }}>
+            <CardMedia
+               component="img"
+               alt={attractionName}
+               height="140"
+               image={image}
+            />
+            <CardContent>
+               <Typography gutterBottom variant="h5" component="div" color="primary">
+                  {attractionName}
+               </Typography>
+               <Typography color="textSecondary">
                   {`${city} | ${states}`}
-            </Typography>
-            {/* <Typography variant="body2" color="inherit">
-               {attractionInfo}
-            </Typography> */}
-         </CardContent>
-         <CardActions>
-            <Link
-               to={{
-                  pathname: `/attraction-detail/${xid}`,
-                  search: `?t=${xid}`
-               }}
-               style={{textDecoration: "none", marginBottom: "5px"}}
-            >
-               <Button variant="outlined">Learn more</Button>
-            </Link>
+               </Typography>
+            </CardContent>
+            
+            <CardActions style={{display: "flex",justifyContent: "right"}}>
+               <Box>
+                  <Link
+                     to={{
+                        pathname: `/attraction-detail/${xid}`,
+                        search: `?t=${xid}`
+                     }}
+                     style={{textDecoration: "none", marginBottom: "5px"}}
+                  >
+                     <Button variant="outlined">Learn more</Button>
+                  </Link>
+               </Box>
 
-            <DeleteOutlineSharpIcon onClick={() => console.log("hello!")}/>
-         </CardActions>
-      </Card>
+               <Box>
+                  <Button variant="outlined" onClick={() => console.log("hello!")}>
+                     <DeleteOutlineSharpIcon />
+                  </Button>
+               </Box>
+            </CardActions>
+         </Card>
       </Box>
    );
 };
