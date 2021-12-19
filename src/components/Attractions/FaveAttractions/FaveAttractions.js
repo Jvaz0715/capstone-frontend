@@ -19,9 +19,21 @@ function FaveAttractions() {
    };
 
    useEffect(() => {
-      fetchAllFavorites()
+      fetchAllFavorites();
    }, []);
-   
+
+   console.log(favorites)
+   /*
+      xid,
+      attractionName,
+      city,
+      states,
+      country,
+      image,
+      attractionInfo,
+      externalURL,
+      wikiPageURL
+   */ 
    return (
       <div>
          Fave Attractions!

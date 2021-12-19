@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import "./Home.css";
 // want to split the screen with image that will resize and small sign up details
 
-import travelPhoto from "../images/clipart66213.png"
+import travelPhoto from "../images/clipart66213.png";
 
 function Home() {
    return (

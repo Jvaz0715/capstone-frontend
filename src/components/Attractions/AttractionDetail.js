@@ -14,6 +14,8 @@ import {
    Typography
 } from "@material-ui/core";
 
+import travelPhoto from "../images/clipart66213.png";
+
 function AttractionDetail(props) {
    const xidURL = props.match.params.xid;
    // standard in object return
@@ -24,10 +26,10 @@ function AttractionDetail(props) {
    const [country, setCountry] = useState("");
 
    // not all data has these, place default data
-   const [image, setImage] = useState("default image");
-   const [attractionInfo, setAttractionInfo] = useState("default info");
-   const [externalURL, setExternalURL] = useState("default externalURL");
-   const [wikiPageURL, setWikiPageURL] = useState("wikiPageURL");
+   const [image, setImage] = useState(travelPhoto);
+   const [attractionInfo, setAttractionInfo] = useState("No information to display.");
+   const [externalURL, setExternalURL] = useState("");
+   const [wikiPageURL, setWikiPageURL] = useState("");
 
 
    // if country is USA, just give state, otherwise use country
@@ -83,6 +85,12 @@ function AttractionDetail(props) {
       fetchAttractionDetails(xidURL)
    }, []);
 
+   console.log("externalURL")
+   console.log(externalURL.length)
+
+   console.log("wikiPageURL")
+   console.log(wikiPageURL.length)
+
    return (
       <>
          <Card sx={{ maxWidth: 345}}>
@@ -106,8 +114,17 @@ function AttractionDetail(props) {
             </CardContent>
             <CardActions>
                <Button size="small" variant="outlined" onClick={addToFavorites}>Save</Button>
-               <Button size="small" variant="outlined">Learn More</Button>
-               <Button size="small" variant="outlined">Wiki</Button>
+               {/* if external website exists*/}
+               {
+                  externalURL.length > 0 
+                     && <Button size="small" variant="outlined">Learn More</Button>
+               }
+               {/* if wiki button exists */}
+               {
+                  wikiPageURL.length > 0
+                     && <Button size="small" variant="outlined">Wiki</Button>
+               }
+               
             </CardActions>
          </Card>
       </>
