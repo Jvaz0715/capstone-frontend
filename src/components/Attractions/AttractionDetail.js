@@ -106,7 +106,7 @@ function AttractionDetail(props) {
                   {attractionName}
                </Typography>
                <Typography>
-                  {city}, {useStateOrCountry}
+                  {`${city} | ${useStateOrCountry}`}
                </Typography>
                <Typography variant="body2" color="text.secondary">
                   {attractionInfo}
