@@ -27,7 +27,7 @@ function FaveAttractions() {
 
    async function removeFromFavorites(_id) {
       try {
-         const deletedFave = await Axios.delete(`/favorite-attractions/delete-attraction-from-favorites/${_id}`);
+         await Axios.delete(`/favorite-attractions/delete-attraction-from-favorites/${_id}`);
 
          fetchAllFavorites();
       } catch(e) {
