@@ -25,7 +25,6 @@ function FaveAttractions() {
       fetchAllFavorites();
    }, []);
 
-   console.log(favorites)
    /*
       xid,
       attractionName,

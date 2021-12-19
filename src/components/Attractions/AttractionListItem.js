@@ -29,9 +29,6 @@ function AttractionSearchItem(props) {
       kinds,
    } = props;
 
-   console.log("props")
-   console.log(props.kinds)
-
    const returnLogo = (kinds) => {
       if (kinds.includes("theatres")) {
          return TheaterLogo;
@@ -50,11 +47,11 @@ function AttractionSearchItem(props) {
       } else {
          return;
       }
-   }
+   };
 
    if(name === "") {
       return;
-   }
+   };
 
    function convertedToMiles(dist) {
       const miles = dist / 1609.34;

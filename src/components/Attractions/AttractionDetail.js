@@ -62,7 +62,7 @@ function AttractionDetail(props) {
             xid,
             attractionName,
             city,
-            states,
+            states: useStateOrCountry,
             country,
             image,
             attractionInfo,
@@ -85,14 +85,9 @@ function AttractionDetail(props) {
       fetchAttractionDetails(xidURL)
    }, []);
 
-   console.log("externalURL")
-   console.log(externalURL.length)
-
-   console.log("wikiPageURL")
-   console.log(wikiPageURL.length)
-
    return (
-      <>
+      <div style={{display: "flex", alignItems: "center", justifyContent:"center", marginTop: "30px"}}>
+         <Box sx={{ width: 400, marginBottom: 10 }}>
          <Card sx={{ maxWidth: 345}}>
             <CardMedia
                component="img"
@@ -105,10 +100,10 @@ function AttractionDetail(props) {
                <Typography gutterBottom variant="h5" component="div">
                   {attractionName}
                </Typography>
-               <Typography>
+               <Typography color="textSecondary">
                   {`${city} | ${useStateOrCountry}`}
                </Typography>
-               <Typography variant="body2" color="text.secondary">
+               <Typography variant="body2" color="textSecondary">
                   {attractionInfo}
                </Typography>
             </CardContent>
@@ -127,7 +122,8 @@ function AttractionDetail(props) {
                
             </CardActions>
          </Card>
-      </>
+         </Box>
+      </div>
    )
 };
 
