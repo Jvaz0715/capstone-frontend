@@ -44,6 +44,7 @@ function AttractionDetail(props) {
          setCity(attractionDetails.data.address.city);
          setStates(attractionDetails.data.address.state);
          setCountry(attractionDetails.data.address.country);
+         setXid(xidURL)
 
          // dynamic data that not all objects have
          attractionDetails.data.preview.source && setImage(attractionDetails.data.preview.source);
