@@ -8,5 +8,16 @@
 
 .fave-attractions-banner {
    margin: 20px;
-   width: 350px;
+   width: 70%;
+}
+
+/* #1fbfb8, #05716c, #1978a5, #031163 */
+
+.fave-attractions-banner > h1 {
+   padding: 2px;
+   font-size: 30px;
+   /* text-shadow: 2px 2px 2px gray; */
+   color: #05716c;
+   font-weight: bold;
+   font-family: 'Pacifico', cursive;
 }

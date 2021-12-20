@@ -38,9 +38,9 @@ function FaveAttractions() {
    return (
       <div className="fave-attractions-container">
          <div className="fave-attractions-banner">
-            <h1>Fave Attractions!</h1>
             <hr />
-            <p>Below are attractions you have saved. Click on 'Learn More' to get more information on each attraction. Click 'Remove' if you no longer wish to keep the attraction in your favorites.</p>
+            <h1>Your Favorite Attractions</h1>
+            
             <hr />
          </div>
          
