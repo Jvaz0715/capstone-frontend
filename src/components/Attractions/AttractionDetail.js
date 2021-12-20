@@ -108,12 +108,20 @@ function AttractionDetail(props) {
                {/* if external website exists*/}
                {
                   externalURL.length > 0 
-                     && <Button size="small" variant="outlined">Website</Button>
+                     && <Button size="small" variant="outlined">
+                           <a href={externalURL} rel="noreferrer" target="_blank" style={{textDecoration: "none", color: "black"}}>
+                              Website
+                           </a>
+                        </Button>
                }
                {/* if wiki button exists */}
                {
                   wikiPageURL.length > 0
-                     && <Button size="small" variant="outlined">Wiki</Button>
+                     && <Button size="small" variant="outlined">
+                           <a href={wikiPageURL} rel="noreferrer" target="_blank" style={{textDecoration: "none", color: "black"}}>
+                              Wikipedia
+                           </a>
+                        </Button>
                }
                
             </CardActions>

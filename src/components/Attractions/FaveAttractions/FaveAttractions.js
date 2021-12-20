@@ -40,7 +40,6 @@ function FaveAttractions() {
          <div className="fave-attractions-banner">
             <hr />
             <h1>Your Favorite Attractions</h1>
-            
             <hr />
          </div>
          

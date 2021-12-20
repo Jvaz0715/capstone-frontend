@@ -23,7 +23,6 @@
    font-weight: bold;
    font-family: 'Pacifico', cursive;
    border: 2px solid white;
-
 }
 .hero-text > h1 {
    font-size: 32px;
@@ -48,12 +47,4 @@
    align-items: center;
    justify-content: center;
    /* border: 3px solid blue; */
-}
-
-.search-results-ul {
-   /* border: 3px solid purple; */
-}
-
-.search-results-li {
-   /* border: 3px solid red; */
 }
