@@ -49,7 +49,9 @@ function AttractionSearchItem(props) {
       }
    };
 
-   if(name === "") {
+   
+
+   if(name === "" || rate < 3) {
       return;
    };
 
@@ -70,11 +72,8 @@ function AttractionSearchItem(props) {
                      <Typography component="div" variant="h5">
                         {name}
                      </Typography>
-                     <Typography variant="subtitle1" color="text.secondary" component="div">
-                        {distInMiles} miles away
-                     </Typography>
-                     <Typography variant="subtitle1" color="text.secondary" component="div">
-                        {rate}/5 rating
+                     <Typography variant="subtitle1" color="textSecondary" component="div">
+                        {distInMiles} miles away | {rate}/7 Rated
                      </Typography>
                   </CardContent>
 
